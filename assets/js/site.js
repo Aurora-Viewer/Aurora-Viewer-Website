@@ -57,8 +57,8 @@
     'dl.linux-guide': 'Installer sur Linux',
     'dl.linux': 'Télécharger pour Linux',
     'meta.license': 'Libre et gratuit, GPLv3',
-    'alt.world': 'Aurora Viewer dans la galerie d’un musée, avec les fenêtres Personnes, Performances, Inventaire, Photo, Contrôles et Conversations ouvertes',
-    'float.fps': '3,1 ms par image, dans cette scène',
+    'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
+    'float.fps': '5,2 ms par image, six fenêtres ouvertes',
     'float.photo': 'Photos jusqu’en 8K',
     'float.photo-sub': 'Profondeur de champ, caméra libre',
     'stats.label': 'En bref',
@@ -106,22 +106,36 @@
     'upd.1': 'Téléchargée en arrière-plan',
     'upd.2': 'Vérifiée avec son empreinte publiée',
     'upd.3': 'Annulée si quoi que ce soit échoue',
-    'alt.build': 'Construire dans Aurora : le panneau Transformer à côté d’un cube sélectionné, le menu de la parcelle et la fenêtre À propos du terrain',
-    'gal.build': '<b>Construire et gérer son terrain.</b> Transformations précises, À propos du terrain et une fenêtre Région / Domaine complète.',
-    'alt.login': 'L’écran de connexion d’Aurora sous une aurore, avec deux comptes d’avatar côte à côte',
+    'alt.build': 'Construire dans Aurora : le panneau Transformer à côté d’un cube sélectionné, avec les fenêtres À propos du terrain, Région / Domaine, profil et voix',
+    'gal.build': '<b>Construire et gérer son terrain.</b> Transformations précises, À propos du terrain, une fenêtre Région / Domaine complète et des profils riches.',
+    'alt.login': 'L’écran de connexion d’Aurora sous une aurore, avec deux comptes d’avatar côte à côte et les actualités',
     'gal.login': '<b>Une nouvelle connexion.</b> Plusieurs avatars côte à côte, avec votre dernier lieu et les dernières actualités.',
     'nav.photo': 'Photo',
     'photo.eyebrow': 'Mode photo',
     'photo.title': 'Un appareil photo entre vos mains.',
     'photo.lead': 'Le mode photo s’ouvre en plein écran sous un vrai viseur : un autofocus qui trouve les visages, des bagues pour la focale, l’ouverture et l’exposition, et un histogramme en direct. Cadrez, faites la mise au point, déclenchez.',
-    'alt.photo': 'Une photo cadrée dans le viseur d’Aurora, avec le collimateur verrouillé sur le visage d’un avatar',
-    'vf.thirds': 'Règle des tiers',
-    'vf.window': 'Fenêtre',
-    'vf.disk': 'Disque',
-    'vf.avatar': 'Avatar',
-    'vf.point': 'Point',
-    'vf.ring': 'Bague de focale',
-    'vf.sharp': 'Net de',
+    'alt.photo': 'Le viseur d’Aurora : règle des tiers, collimateur verrouillé sur le visage d’un avatar, manette de caméra, bague de focale et mesures d’exposition',
+    'tour.eyebrow': 'De plus près',
+    'tour.title': 'Des fenêtres où l’on se sent chez soi.',
+    'tour.label': 'Fenêtres',
+    'tour.conv': 'Conversations',
+    'tour.notif': 'Notifications',
+    'tour.inv': 'Inventaire',
+    'tour.places': 'Lieux',
+    'tour.search': 'Recherche',
+    'tour.monitor': 'Moniteur de ressources',
+    'tour.conv.text': 'Des conversations comme une messagerie : bulles, images, et invitations de téléportation ou cadeaux directement dans le fil.',
+    'tour.notif.text': 'Un centre de notifications qui se déroule depuis la cloche, avec l’historique de tout ce que vous avez manqué.',
+    'tour.inv.text': 'Un inventaire qui s’élargit en explorateur : dossiers, détails, filtres et les droits de chaque objet d’un coup d’œil.',
+    'tour.places.text': 'Favoris, repères et historique dans une seule liste, avec un aperçu de chaque lieu.',
+    'tour.search.text': 'Une seule recherche pour les résidents, lieux, événements, groupes et petites annonces, avec les détails à côté des résultats.',
+    'tour.monitor.text': 'Un moniteur de ressources qui montre où part chaque milliseconde, chaque mégaoctet et chaque kilobit.',
+    'alt.conv': 'La fenêtre Conversations : une discussion privée en bulles et une invitation de téléportation en carte',
+    'alt.notif': 'Le centre de notifications déroulé depuis la cloche, avec une invitation de téléportation et un avis du simulateur',
+    'alt.inv': 'L’inventaire élargi en explorateur, avec les dossiers, les droits des objets et un panneau de détails',
+    'alt.places': 'La fenêtre Lieux : repères et lieux visités dans une seule liste, avec l’aperçu du lieu choisi',
+    'alt.search': 'La fenêtre Rechercher : un seul champ, les types, les filtres de maturité et les détails à côté des résultats',
+    'alt.monitor': 'Le moniteur de ressources : processeur, carte graphique, mémoire, réseau et disque, avec le temps d’image par tâche',
     'photo.af.title': 'Un autofocus qui trouve les visages',
     'photo.af.text': 'AF-S, AF-C ou manuel. Sur un avatar, la mise au point se verrouille entre les yeux et les suit.',
     'photo.rings.title': 'Des bagues d’objectif',
@@ -139,7 +153,7 @@
     'yours.lead': 'Chaque fenêtre repensée garde sa version Legacy à un clic, dans Préférences › Aurora. Essayez ici.',
     'yours.where': 'Préférences › Aurora',
     'yours.cap': 'Préférences › Aurora : un choix par fenêtre, ou tout d’un coup.',
-    'alt.prefs': 'La page Aurora des Préférences, avec un choix Aurora ou Legacy pour les conversations, le chat local, les étiquettes, les notifications et les barres',
+    'alt.prefs': 'La page Aurora des Préférences, avec un choix Aurora ou Legacy pour chaque fenêtre repensée',
     'win.bars': 'Barres d’outils',
     'win.people': 'Personnes',
     'win.chat': 'Lignes du chat',
@@ -446,6 +460,70 @@
       $$('button[data-v]', button.parentElement).forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
       renderToggleSummary();
     });
+  }
+
+  // ---- A closer look: the tabs advance on their own until the visitor picks one ----
+
+  const tour = document.querySelector('[data-tour]');
+  if (tour) {
+    const tabs = $$('[role="tab"]', tour);
+    const progress = tour.querySelector('.tour-progress');
+    const TOUR_MS = 6500;
+    let current = 0;
+    let timer = 0;
+    let auto = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let visible = false;
+    let paused = false;
+
+    const schedule = () => {
+      clearTimeout(timer);
+      if (progress) {
+        progress.classList.remove('run');
+        void progress.offsetWidth; // restart the bar's animation
+      }
+      if (!auto || !visible || paused) return;
+      if (progress) {
+        progress.style.setProperty('--tour-ms', `${TOUR_MS}ms`);
+        progress.classList.add('run');
+      }
+      timer = setTimeout(() => show(current + 1), TOUR_MS);
+    };
+
+    const show = (index, focus) => {
+      current = (index + tabs.length) % tabs.length;
+      tabs.forEach((tab, n) => {
+        const on = n === current;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(tab.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tabs[current].focus();
+      schedule();
+    };
+
+    tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+      auto = false;
+      show(i);
+    }));
+    tour.querySelector('[role="tablist"]').addEventListener('keydown', (event) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      const jump = { Home: 0, End: tabs.length - 1 }[event.key];
+      if (step === undefined && jump === undefined) return;
+      event.preventDefault();
+      auto = false;
+      show(jump !== undefined ? jump : current + step, true);
+    });
+    tour.addEventListener('mouseenter', () => { paused = true; schedule(); });
+    tour.addEventListener('mouseleave', () => { paused = false; schedule(); });
+    tour.addEventListener('focusin', () => { paused = true; schedule(); });
+    tour.addEventListener('focusout', () => { paused = false; schedule(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        schedule();
+      }, { threshold: 0.4 }).observe(tour);
+    }
   }
 
   // ---- Bars grow when they come into view ---------------------------------------
