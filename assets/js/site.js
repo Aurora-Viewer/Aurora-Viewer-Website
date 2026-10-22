@@ -1,4 +1,4 @@
-// Aurora Viewer website: language, latest release, news and the Aurora / Legacy demo.
+// Aurora Viewer website: language, latest release, news and the window tour.
 // Everything here is optional: without JavaScript the page shows the values written in index.html.
 (() => {
   'use strict';
@@ -19,9 +19,6 @@
       'dl.linux-guide': 'Get it on Linux',
       mb: 'MB',
       more: 'Read more',
-      allAurora: 'All windows in the Aurora layout',
-      oneLegacy: '1 window in the Legacy layout',
-      manyLegacy: (n) => `${n} windows in the Legacy layout`,
     },
     fr: {
       title: 'Aurora Viewer — un viewer Second Life moderne',
@@ -29,9 +26,6 @@
       'dl.linux-guide': 'Installer sur Linux',
       mb: 'Mo',
       more: 'En savoir plus',
-      allAurora: 'Toutes les fenêtres en version Aurora',
-      oneLegacy: '1 fenêtre en version Legacy',
-      manyLegacy: (n) => `${n} fenêtres en version Legacy`,
     },
   };
 
@@ -150,18 +144,9 @@
     'photo.cam.text': 'Orbite, libre ou à la première personne, et un retardateur de 2 ou 10 secondes pour prendre la pose.',
     'yours.eyebrow': 'À votre façon',
     'yours.title': 'La nouvelle interface, ou celle que vous connaissez. Fenêtre par fenêtre.',
-    'yours.lead': 'Chaque fenêtre repensée garde sa version Legacy à un clic, dans Préférences › Aurora. Essayez ici.',
-    'yours.where': 'Préférences › Aurora',
+    'yours.lead': 'Vous préférez la mise en page que vous connaissez ? Chaque fenêtre repensée garde sa version Legacy à un clic.',
     'yours.cap': 'Préférences › Aurora : un choix par fenêtre, ou tout d’un coup.',
     'alt.prefs': 'La page Aurora des Préférences, avec un choix Aurora ou Legacy pour chaque fenêtre repensée',
-    'win.bars': 'Barres d’outils',
-    'win.people': 'Personnes',
-    'win.chat': 'Lignes du chat',
-    'win.inventory': 'Inventaire',
-    'win.places': 'Lieux',
-    'win.search': 'Recherche',
-    'win.land': 'À propos du terrain',
-    'win.estate': 'Région / Domaine',
     'road.eyebrow': 'Feuille de route',
     'road.title': 'En chemin.',
     soon: 'Bientôt',
@@ -262,7 +247,6 @@
     }));
     $$('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     renderRelease();
-    renderToggleSummary();
     loadNews();
   }
 
@@ -432,34 +416,6 @@
       card.append(more);
     }
     return card;
-  }
-
-  // ---- Aurora / Legacy demo ---------------------------------------------------
-
-  const toggles = document.querySelector('[data-toggles]');
-
-  function renderToggleSummary() {
-    const summary = document.querySelector('[data-toggle-summary]');
-    if (!toggles || !summary) return;
-    const n = $$('button[data-v="legacy"][aria-pressed="true"]', toggles).length;
-    summary.textContent = n === 0 ? STR[lang].allAurora : n === 1 ? STR[lang].oneLegacy : STR[lang].manyLegacy(n);
-  }
-
-  if (toggles) {
-    $$('.trow', toggles).forEach((row) => {
-      const seg = row.querySelector('.seg');
-      const name = row.querySelector('.tname');
-      if (seg && name) {
-        name.id = `win-${row.dataset.win}`;
-        seg.setAttribute('aria-labelledby', name.id);
-      }
-    });
-    toggles.addEventListener('click', (event) => {
-      const button = event.target.closest('button[data-v]');
-      if (!button) return;
-      $$('button[data-v]', button.parentElement).forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
-      renderToggleSummary();
-    });
   }
 
   // ---- A closer look: the tabs advance on their own until the visitor picks one ----
