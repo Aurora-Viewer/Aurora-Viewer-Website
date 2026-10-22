@@ -37,11 +37,14 @@ the browser, then the visitor's choice (EN / FR buttons), or `?lang=fr`.
 
 ## Images
 
-Screenshots are WebP, each in two widths (`name-1280.webp`, `name-2560.webp`),
-used through `srcset`. To replace one, export the new capture at 2560 px wide
-(English interface, no readable avatar or region names) and overwrite both
-files, keeping the names. `og-image.jpg` (1200 × 630) is the preview shown when
-the link is shared.
+Scene captures (`world`, `build-land`, `login`, `viewfinder`) are WebP in two
+widths (`name-1280.webp`, `name-2560.webp`), used through `srcset`; window
+captures (`win-*.webp`) are single files at their native size. To replace one,
+overwrite the files, keeping the names, and update the image's `width` and
+`height` in `index.html` if its size changed. In the photo section, the
+`.vf-lock` element is placed over the viewfinder's green AF point in percent
+of the picture: move it with a new capture. `og-image.jpg` (1200 × 630) is the
+preview shown when the link is shared.
 
 ## Local preview
 
