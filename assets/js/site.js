@@ -8,6 +8,8 @@
   // Same feed as the viewer's login screen (crates/aurora-viewer/src/links.rs, NEWS_FEED).
   const NEWS_FEED = `https://raw.githubusercontent.com/${REPO}/main/news/`;
   const RELEASE_TTL = 60 * 60 * 1000;
+  // A new key drops the answers browsers kept from before the symbols fix.
+  const RELEASE_KEY = 'aurora-release-2';
   const NEWS_TTL = 30 * 60 * 1000;
   const NEWS_SHOWN = 3;
 
@@ -265,7 +267,9 @@
       .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))[0];
     if (!viewer) return null;
     const asset = (re) => {
-      const a = viewer.assets.find((x) => re.test(x.name) && !/\.(sha256|json|sig|asc)$/i.test(x.name));
+      // Each release also carries crash symbols (…-windows-x64-symbols.zip) and checksums: never offer those.
+      const a = viewer.assets.find((x) => re.test(x.name)
+        && !/symbols|debug|\.(sha256|json|sig|asc)$/i.test(x.name));
       return a ? { url: a.browser_download_url, size: a.size } : null;
     };
     return {
@@ -284,7 +288,7 @@
   }
 
   async function loadRelease() {
-    release = cached('aurora-release', RELEASE_TTL);
+    release = cached(RELEASE_KEY, RELEASE_TTL);
     if (!release) {
       try {
         const list = await fetchJson(RELEASES_API);
@@ -292,7 +296,7 @@
         // The list endpoint is cached at GitHub's edge and has been seen answering []:
         // fall back to the release marked latest.
         if (!release) release = summarise([await fetchJson(`https://api.github.com/repos/${REPO}/releases/latest`)]);
-        if (release) store.set('aurora-release', { at: Date.now(), value: release });
+        if (release) store.set(RELEASE_KEY, { at: Date.now(), value: release });
       } catch (_) {
         return; // Offline or rate limited: keep the values written in the page.
       }
