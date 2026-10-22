@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurora Viewer — a modern Second Life viewer</title>
+<meta name="description" content="Aurora Viewer is a free, open source Second Life viewer written from scratch in Rust, with a Vulkan renderer, a calm interface and the world you already know.">
+<meta name="theme-color" content="#070B1F">
+<link rel="canonical" href="https://aurora-viewer.org/">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aurora Viewer">
+<meta property="og:title" content="Aurora Viewer — a modern Second Life viewer">
+<meta property="og:description" content="Free and open source, written from scratch in Rust, with a Vulkan renderer and a calm interface.">
+<meta property="og:url" content="https://aurora-viewer.org/">
+<meta property="og:image" content="https://aurora-viewer.org/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+<script src="assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <img src="assets/img/logo.svg" width="34" height="34" alt="">
+      <span>Aurora Viewer</span>
+    </a>
+    <nav class="links" aria-label="Main" data-i18n-aria="nav.label">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#photo" data-i18n="nav.photo">Photo</a>
+      <a href="#performance" data-i18n="nav.performance">Performance</a>
+      <a href="#yours" data-i18n="nav.yours">Your way</a>
+      <a href="#news" data-i18n="nav.news">News</a>
+      <a href="#community" data-i18n="nav.community">Community</a>
+    </nav>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.label">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+      <a class="btn btn-ghost btn-sm gh" href="https://discord.gg/TK4nbMGmKt" aria-label="Aurora Viewer on Discord" data-i18n-aria="discord.label">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/></svg>
+      </a>
+      <a class="btn btn-ghost btn-sm gh" href="https://github.com/Aurora-Viewer/Aurora-Viewer" aria-label="Aurora Viewer on GitHub" data-i18n-aria="gh.label">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
+      </a>
+      <a class="btn btn-primary btn-sm" href="#download" data-i18n="nav.download">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="top" class="top">
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="ribbon r4"></div>
+    <div class="ribbon r1"></div>
+    <div class="ribbon r2"></div>
+    <div class="ribbon r3"></div>
+    <div class="rays"></div>
+  </div>
+
+  <div class="wrap hero">
+    <a class="pill rise" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-release-link>
+      <span class="dot"></span>
+      <span><span data-i18n="pill.before">Version</span> <span data-version>0.7.3</span> <span data-i18n="pill.after">is out</span></span>
+      <span class="tag"><span data-i18n="pill.notes">Release notes</span>
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
+      </span>
+    </a>
+
+    <h1 class="display h1 rise d1" data-i18n="hero.title">Second Life,<br><span class="glow-text">beautifully fast.</span></h1>
+    <p class="lead rise d2" data-i18n="hero.lead">A modern Second Life viewer, written from scratch in Rust. A Vulkan renderer, a calm interface, and the world you already know.</p>
+
+    <div id="download" class="cta rise d3">
+      <a class="btn btn-primary" data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9l0 .1"/><path d="M12 5l0 14"/><path d="M4 12l16 0"/></svg>
+        <span class="lbl"><span data-i18n="dl.windows">Download for Windows</span> <span class="size" data-dl-size="windows"></span></span>
+      </a>
+      <a class="btn btn-glass" data-dl="linux" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l3 3l-3 3"/><path d="M13 15l3 0"/><path d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12"/></svg>
+        <span class="lbl"><span data-i18n="dl.linux-guide" data-dl-label="linux">Get it on Linux</span> <span class="size" data-dl-size="linux"></span></span>
+      </a>
+    </div>
+    <p class="meta rise d4">v<span data-version>0.7.3</span> · <span data-release-date data-date="2026-10-21T16:52:13Z">October 21, 2026</span> · <span data-i18n="meta.license">Free and open source, GPLv3</span></p>
+
+    <div class="shot rise d5">
+      <div class="shot-glow"></div>
+      <div class="frame">
+        <img src="assets/img/world-1280.webp" srcset="assets/img/world-1280.webp 1280w, assets/img/world-2560.webp 2560w" sizes="(max-width: 1224px) 100vw, 1160px" width="2559" height="1393" fetchpriority="high"
+          alt="Aurora Viewer in a museum gallery, with the People, Performance, Inventory, Photo, Controls and Conversations windows open" data-i18n-alt="alt.world">
+      </div>
+      <div class="float f1">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span>
+        <div><b>320 fps</b><span data-i18n="float.fps">3.1 ms per frame, this scene</span></div>
+      </div>
+      <div class="float f2">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6"/></svg></span>
+        <div><b data-i18n="float.photo">Photos up to 8K</b><span data-i18n="float.photo-sub">Depth of field, free camera</span></div>
+      </div>
+      <div class="fade"></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="At a glance" data-i18n-aria="stats.label">
+  <div class="stats">
+    <div class="stat"><div class="n">≈ 5×</div><p data-i18n="stats.fps">the frame rate of a classic viewer in a busy store</p></div>
+    <div class="stat"><div class="n">≈ ½</div><p data-i18n="stats.vram">the video memory for the same textures</p></div>
+    <div class="stat"><div class="n" data-i18n="stats.instant">Instant</div><p data-i18n="stats.tp">teleports within a region, with no loading screen</p></div>
+    <div class="stat"><div class="n">Vulkan</div><p data-i18n="stats.vulkan">a renderer built for today's graphics cards</p></div>
+  </div>
+</section>
+
+<section id="performance" class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow" data-i18n="perf.eyebrow">Performance</p>
+        <h2 class="display h2" data-i18n="perf.title">Hundreds of frames per second, right where it's crowded.</h2>
+        <p class="lead" style="margin-top: 22px" data-i18n="perf.lead">Your graphics card finally does the work. It decides what is visible and draws thousands of objects in a handful of calls, while a dedicated render thread keeps the frames coming.</p>
+      </div>
+      <div class="card bars" data-observe>
+        <div class="bar-row">
+          <div class="bar-head"><span class="who">Aurora Viewer</span><span class="val">340 <small>fps</small></span></div>
+          <div class="bar"><div class="bar-fill bar-a"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-head"><span class="who muted" data-i18n="perf.classic">A classic viewer</span><span class="val muted">68 <small>fps</small></span></div>
+          <div class="bar"><div class="bar-fill bar-b"></div></div>
+        </div>
+        <p class="note" data-i18n="perf.note">Busy store · about 16,000 objects · same PC, same spot</p>
+      </div>
+    </div>
+
+    <div class="minis">
+      <div class="card mini">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7c3 -2 6 -2 9 0s6 2 9 0"/><path d="M3 17c3 -2 6 -2 9 0s6 2 9 0"/><path d="M3 12c3 -2 6 -2 9 0s6 2 9 0"/></svg></span>
+        <h3 data-i18n="perf.m1.title">Arrive without a freeze</h3>
+        <p data-i18n="perf.m1.text">Textures and meshes decode in the background, straight into GPU memory. What you look at downloads first.</p>
+      </div>
+      <div class="card mini">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/><path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/></svg></span>
+        <h3 data-i18n="perf.m2.title">Places you know, at once</h3>
+        <p data-i18n="perf.m2.text">Textures are cached on disk ready for the graphics card, in about half the video memory.</p>
+      </div>
+      <div class="card mini">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg></span>
+        <h3 data-i18n="perf.m3.title">It holds on</h3>
+        <p data-i18n="perf.m3.text">A network blip no longer logs you out: Aurora reconnects you right where you were.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="sec">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="feat.eyebrow">Features</p>
+    <h2 class="display h2" data-i18n="feat.title">Everything you know, rebuilt for today.</h2>
+    <div class="feat">
+      <article class="card fcard">
+        <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span>
+        <h3 data-i18n="feat.fast.title">Fast, and smooth</h3>
+        <p class="sub" data-i18n="feat.fast.sub">A viewer that keeps up with you.</p>
+        <ul class="ticks">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.fast.1">Instant teleports within a region; the others show real progress</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.fast.2">Fewer hitches in a crowd, smoother avatars around you</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.fast.3">A full video memory no longer freezes the viewer</span></li>
+        </ul>
+      </article>
+      <article class="card fcard">
+        <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6"/></svg></span>
+        <h3 data-i18n="feat.picture.title">A sharper, richer picture</h3>
+        <p class="sub" data-i18n="feat.picture.sub">Modern light, without changing the look you know.</p>
+        <ul class="ticks">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.picture.1">Ambient occlusion (GTAO) and sun contact shadows</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.picture.2">Clean shadows and highlights that hold still as you move</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.picture.3">Graphics levels matched to your machine at first launch</span></li>
+        </ul>
+      </article>
+      <article class="card fcard">
+        <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/></svg></span>
+        <h3 data-i18n="feat.sl.title">The Second Life you know</h3>
+        <p class="sub" data-i18n="feat.sl.sub">Same world, same rules, nothing to relearn.</p>
+        <ul class="ticks">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.sl.1">PBR and legacy materials, EEP skies, mirrors, water and glow</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.sl.2">Voice with noise suppression, IMs, groups and a searchable history</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.sl.3">Shape editing, gestures, a built-in AO and your own sky and water</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.sl.4">RLVa, opt-in, for the experiences and outfits that rely on it</span></li>
+        </ul>
+      </article>
+      <article class="card fcard">
+        <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 6l8 0"/><path d="M16 6l4 0"/><path d="M6 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 12l2 0"/><path d="M10 12l10 0"/><path d="M15 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 18l11 0"/><path d="M19 18l1 0"/></svg></span>
+        <h3 data-i18n="feat.ui.title">An interface made for today</h3>
+        <p class="sub" data-i18n="feat.ui.sub">Flat, calm and readable, arranged your way.</p>
+        <ul class="ticks">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.ui.1">Glass island bars and a notification center with history</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.ui.2">One search for residents, places, events, groups and classifieds</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg><span data-i18n="feat.ui.3">An inventory that widens into an explorer, notecards in Markdown</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="card update">
+      <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/></svg></span>
+      <div class="update-text">
+        <h3 data-i18n="upd.title">Updates in one click</h3>
+        <p data-i18n="upd.text">On Windows, at launch, Aurora offers the new version, downloads it in the background, installs it and restarts your session. Before you agree, it tells you whether your cache and settings are kept.</p>
+      </div>
+      <ul class="update-steps">
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4"/><path d="M12 13l0 9"/><path d="M9 19l3 3l3 -3"/></svg><span data-i18n="upd.1">Downloaded in the background</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06"/><path d="M15 19l2 2l4 -4"/></svg><span data-i18n="upd.2">Checked against its published hash</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14l-4 -4l4 -4"/><path d="M5 10h11a4 4 0 1 1 0 8h-1"/></svg><span data-i18n="upd.3">Rolled back if anything goes wrong</span></li>
+      </ul>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <div class="frame"><img src="assets/img/build-land-1280.webp" srcset="assets/img/build-land-1280.webp 1280w, assets/img/build-land-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2559" height="1390" loading="lazy"
+          alt="Building in Aurora: the Transform panel next to a selected box, the parcel menu and the About Land window" data-i18n-alt="alt.build"></div>
+        <figcaption data-i18n="gal.build"><b>Build and run your land.</b> Precise transforms, About Land and a complete Region / Estate window.</figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><img src="assets/img/login-1280.webp" srcset="assets/img/login-1280.webp 1280w, assets/img/login-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2559" height="1393" loading="lazy"
+          alt="The Aurora login screen under an aurora, with two avatar accounts side by side" data-i18n-alt="alt.login"></div>
+        <figcaption data-i18n="gal.login"><b>A new login.</b> Several avatars side by side, with your last place and the latest news.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="photo" class="sec">
+  <div class="wrap">
+    <div class="photo-head">
+      <div>
+        <p class="eyebrow" data-i18n="photo.eyebrow">Photo mode</p>
+        <h2 class="display h2" data-i18n="photo.title">A camera in your hands.</h2>
+      </div>
+      <p class="lead" data-i18n="photo.lead">The photo mode opens full screen under a real viewfinder: autofocus that finds faces, lens rings for focal length, aperture and exposure, and a live histogram. Frame, focus, shoot.</p>
+    </div>
+
+    <!-- Viewfinder: the photo underneath, the camera's overlay drawn in HTML so it follows the language.
+         --af-x / --af-y place the AF point on the subject's face (centre of the box, in % of the photo). -->
+    <div class="vf" style="--af-x: 36.5%; --af-y: 44%" data-observe>
+      <img class="vf-photo" src="assets/img/photo-1280.webp" srcset="assets/img/photo-1280.webp 1280w, assets/img/photo-2560.webp 2560w" sizes="(max-width: 1224px) 100vw, 1136px" width="2559" height="1393" loading="lazy"
+        alt="A photo framed in the Aurora viewfinder, with the autofocus point locked on an avatar's face" data-i18n-alt="alt.photo">
+      <div class="vf-hud" aria-hidden="true">
+        <div class="vf-thirds"></div>
+        <div class="vf-tl">
+          <span><svg class="i" viewBox="0 0 24 24"><path d="M4 4h16v16h-16z"/><path d="M4 9.33h16"/><path d="M4 14.66h16"/><path d="M9.33 4v16"/><path d="M14.66 4v16"/></svg><span data-i18n="vf.thirds">Rule of thirds</span></span>
+        </div>
+        <div class="vf-tr">
+          <span class="vf-facts"><span data-i18n="vf.window">Window</span> · <b>4K</b> · PNG · <span data-i18n="vf.disk">Disk</span></span>
+          <svg class="vf-histo" viewBox="0 0 120 48" preserveAspectRatio="none"><path d="M0 48 C 8 46 12 30 18 14 C 22 4 26 6 30 22 C 34 34 40 30 46 26 C 54 22 60 34 70 36 C 80 38 88 30 96 33 C 106 37 114 44 120 47 L 120 48 Z"/></svg>
+        </div>
+        <div class="vf-af"><span class="vf-af-label" data-i18n="vf.avatar">Avatar</span></div>
+        <div class="vf-dock">
+          <span class="vf-btn"><svg class="i" viewBox="0 0 24 24"><path d="M4 10a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M6 4v4"/><path d="M6 12v8"/><path d="M10 16a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M12 4v10"/><path d="M12 18v2"/><path d="M16 7a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M18 4v1"/><path d="M18 9v11"/></svg></span>
+          <span class="vf-btn vf-disp">DISP</span>
+          <span class="vf-shutter"></span>
+          <span class="vf-btn"><svg class="i" viewBox="0 0 24 24"><path d="M15 8h.01"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12"/><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5"/><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3"/></svg></span>
+        </div>
+        <div class="vf-bottom">
+          <div class="vf-ring">
+            <span class="vf-ring-label" data-i18n="vf.ring">Focal ring</span>
+            <div class="vf-ticks"><span>14</span><span>18</span><span>24</span><span>35</span><span>50</span><span>70</span></div>
+            <span class="vf-index"></span>
+          </div>
+          <div class="vf-read"><b>35 mm</b><b>f/2.8</b><span class="vf-ev">±0 EV</span><b class="vf-dist">1.7 m</b></div>
+        </div>
+        <div class="vf-bl"><span class="vf-dot"></span><span class="vf-seg"><b>AF-S</b><span>AF-C</span><span>MF</span></span><span class="vf-seg"><b data-i18n="vf.avatar">Avatar</b><span data-i18n="vf.point">Point</span></span></div>
+        <div class="vf-br"><span data-i18n="vf.sharp">Sharp from</span> <b>1.6 – 1.8 m</b></div>
+      </div>
+    </div>
+
+    <div class="grid3 photo-feats">
+      <div class="pf">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.5 12a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0"/><path d="M5 12a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"/><path d="M12 3l0 2"/><path d="M3 12l2 0"/><path d="M12 19l0 2"/><path d="M19 12l2 0"/></svg></span>
+        <div><h3 data-i18n="photo.af.title">Autofocus that finds faces</h3><p data-i18n="photo.af.text">AF-S, AF-C or manual. On an avatar, the focus locks between the eyes and follows them.</p></div>
+      </div>
+      <div class="pf">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M3.6 15h10.55"/><path d="M6.551 4.938l3.26 10.034"/><path d="M17.032 4.636l-8.535 6.201"/><path d="M20.559 14.51l-8.535 -6.201"/><path d="M12.257 20.916l3.261 -10.034"/></svg></span>
+        <div><h3 data-i18n="photo.rings.title">Lens rings</h3><p data-i18n="photo.rings.text">Focal length, aperture and exposure on rings you drag, or on the mouse wheel.</p></div>
+      </div>
+      <div class="pf">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8h.01"/><path d="M6 13l2.644 -2.644a1.21 1.21 0 0 1 1.712 0l3.644 3.644"/><path d="M13 13l1.644 -1.644a1.21 1.21 0 0 1 1.712 0l1.644 1.644"/><path d="M3 7v-2a2 2 0 0 1 2 -2h2"/><path d="M3 17v2a2 2 0 0 0 2 2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M17 21h2a2 2 0 0 0 2 -2v-2"/></svg></span>
+        <div><h3 data-i18n="photo.dof.title">Real depth of field</h3><p data-i18n="photo.dof.text">On by default, with focus peaking in manual focus to see exactly what is sharp.</p></div>
+      </div>
+      <div class="pf">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg></span>
+        <div><h3 data-i18n="photo.light.title">Light under control</h3><p data-i18n="photo.light.text">A live histogram, exposure lock, and a level to keep the horizon straight, or tilt it.</p></div>
+      </div>
+      <div class="pf">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/></svg></span>
+        <div><h3 data-i18n="photo.res.title">Up to 8K</h3><p data-i18n="photo.res.text">4K by default, in PNG, JPEG or BMP, to your disk, your inventory or your profile feed.</p></div>
+      </div>
+      <div class="pf">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 12l3 2"/><path d="M12 7v5"/></svg></span>
+        <div><h3 data-i18n="photo.cam.title">Free camera, self-timer</h3><p data-i18n="photo.cam.text">Orbit, free or first person, and a 2 or 10 second timer to get into your pose.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yours" class="sec">
+  <div class="wrap">
+    <div class="split top">
+      <div>
+        <p class="eyebrow" data-i18n="yours.eyebrow">Your way</p>
+        <h2 class="display h2" data-i18n="yours.title">New interface, or the one you know. Window by window.</h2>
+        <p class="lead" style="margin-top: 22px" data-i18n="yours.lead">Every redesigned window keeps its Legacy layout one click away, in Preferences › Aurora. Try it here.</p>
+        <div class="card toggles" data-toggles>
+          <div class="trow" data-win="bars"><span class="tname" data-i18n="win.bars">Toolbars</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="people"><span class="tname" data-i18n="win.people">People</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="chat"><span class="tname" data-i18n="win.chat">Chat lines</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="inventory"><span class="tname" data-i18n="win.inventory">Inventory</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="false">Aurora</button><button type="button" data-v="legacy" aria-pressed="true">Legacy</button></div></div>
+          <div class="trow" data-win="places"><span class="tname" data-i18n="win.places">Places</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="search"><span class="tname" data-i18n="win.search">Search</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="land"><span class="tname" data-i18n="win.land">About Land</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="trow" data-win="estate"><span class="tname" data-i18n="win.estate">Region / Estate</span><div class="seg" role="group"><button type="button" data-v="aurora" aria-pressed="true">Aurora</button><button type="button" data-v="legacy" aria-pressed="false">Legacy</button></div></div>
+          <div class="tsum"><span data-toggle-summary aria-live="polite">1 window in the Legacy layout</span><span class="mono" data-i18n="yours.where">Preferences › Aurora</span></div>
+        </div>
+      </div>
+      <div class="side-shot">
+        <div class="shot-glow"></div>
+        <div class="frame"><img src="assets/img/preferences-1280.webp" srcset="assets/img/preferences-1280.webp 1280w, assets/img/preferences-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 600px" width="2559" height="1390" loading="lazy"
+          alt="The Aurora page of Preferences, with an Aurora or Legacy choice for conversations, local chat, name tags, notifications and bars" data-i18n-alt="alt.prefs"></div>
+        <p class="cap" data-i18n="yours.cap">Preferences › Aurora: one choice per window, or all at once.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="sec">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="road.eyebrow">Roadmap</p>
+    <h2 class="display h2" data-i18n="road.title">On the way.</h2>
+    <div class="grid3">
+      <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.fsr.title">AMD FSR upscaling</h3><p data-i18n="road.fsr.text">And its native anti-aliasing, on every brand of graphics card.</p></div>
+      <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.clothing.title">Clothing editors</h3><p data-i18n="road.clothing.text">Edit the textures and colours of your clothes, and make your own.</p></div>
+      <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.terrain.title">PBR terrain</h3><p data-i18n="road.terrain.text">Ground that matches the materials standing on it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="sec">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="news.eyebrow">News</p>
+    <h2 class="display h2" data-i18n="news.title">The latest from Aurora.</h2>
+    <div class="grid3" data-news>
+      <a class="card ncard" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/RLVA.md"><time datetime="2026-10-22">October 22, 2026</time><h3>RLVa, when you want it</h3><p>From the next version, Aurora understands RLVa: the restrictions, exceptions and commands that scripted outfits, furniture and experiences rely on. It stays off until you turn it on in Preferences › Protections, and turning it off releases everything at once.</p><span class="more">Read more →</span></a>
+      <a class="card ncard" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md"><time datetime="2026-10-22">October 22, 2026</time><h3>Aurora on Linux</h3><p>Every release now comes with a Linux build too, with its own install guide.</p><span class="more">Read more →</span></a>
+      <article class="card ncard"><time datetime="2026-10-22">October 22, 2026</time><h3>Your settings, safe</h3><p>Back up your settings to a file and restore them in one click. After a crash, the crash window can send its report as a GitHub issue. And your Alchemy AO sets can now be imported into the built-in AO.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="community" class="sec">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="open.eyebrow">Open source</p>
+    <h2 class="display h2" data-i18n="open.title">Built in the open, with its residents.</h2>
+    <div class="grid3">
+      <div class="card ocard">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11"/><path d="M9 7l4 0"/><path d="M9 11l4 0"/></svg></span>
+        <h3 data-i18n="open.gpl.title">Free, under the GPLv3</h3>
+        <p data-i18n="open.gpl.text">Read the code, build it yourself, and keep it free for everyone.</p>
+      </div>
+      <div class="card ocard">
+        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8l-4 4l4 4"/><path d="M17 8l4 4l-4 4"/><path d="M14 4l-4 16"/></svg></span>
+        <h3 data-i18n="open.rust.title">Written in Rust</h3>
+        <p data-i18n="open.rust.text">From scratch, on wgpu and Vulkan, while speaking to the servers exactly as they expect.</p>
+      </div>
+      <div class="card ocard">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></span>
+        <h3 data-i18n="open.testers.title">Shaped by testers</h3>
+        <p data-i18n="open.testers.text">Report a bug in one click from the viewer, suggest a feature, or help translate it.</p>
+      </div>
+    </div>
+    <div class="card status">
+      <span class="chip violet" data-i18n="open.chip">Early access · 0.x</span>
+      <p data-i18n="open.status">Usable for exploring, chatting and testing. Some features still await validation on the main grid.</p>
+      <a class="btn btn-glass btn-sm" href="https://discord.gg/TK4nbMGmKt">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/></svg>
+        <span data-i18n="open.discord">Join the Discord</span>
+      </a>
+      <a class="btn btn-glass btn-sm" href="https://github.com/Aurora-Viewer/Aurora-Viewer">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="ribbon r1"></div>
+    <div class="ribbon r2"></div>
+    <div class="ribbon r3"></div>
+    <div class="rays"></div>
+  </div>
+  <svg class="hills" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path fill="#0A0E24" d="M0 120 C 180 70 320 90 480 104 C 640 118 760 60 940 72 C 1110 84 1260 120 1440 96 L 1440 180 L 0 180 Z"/><path fill="#050816" d="M0 150 C 220 118 400 140 620 132 C 820 124 980 150 1180 140 C 1300 134 1380 138 1440 142 L 1440 180 L 0 180 Z"/></svg>
+  <div class="wrap">
+    <img class="wolf" src="assets/img/logo.svg" width="112" height="112" alt="">
+    <h2 class="display h2" data-i18n="final.title">Step into a smoother <span class="glow-text">Second&nbsp;Life.</span></h2>
+    <p class="lead" data-i18n="final.lead">Free, open source, and ready for your next login.</p>
+    <div class="cta">
+      <a class="btn btn-primary" data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg>
+        <span data-i18n="final.dl">Download Aurora Viewer</span>
+      </a>
+      <a class="btn btn-glass" data-dl="linux" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">
+        <span data-i18n="dl.linux-guide" data-dl-label="linux">Get it on Linux</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top"><img src="assets/img/logo.svg" width="30" height="30" alt=""><span>Aurora Viewer</span></a>
+        <p class="about" data-i18n="foot.about">A modern Second Life viewer, written from scratch in Rust.</p>
+      </div>
+      <nav class="fcol" aria-labelledby="f-product">
+        <h2 id="f-product" data-i18n="foot.product">Product</h2>
+        <a data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-i18n="foot.download">Download</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">Linux</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases" data-i18n="foot.notes">Release notes</a>
+        <a href="#roadmap" data-i18n="foot.roadmap">Roadmap</a>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-project">
+        <h2 id="f-project" data-i18n="foot.project">Project</h2>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer" data-i18n="foot.source">Source code</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose" data-i18n="foot.bug">Report a bug</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/TRANSLATING.md" data-i18n="foot.translate">Translate</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer#contributing" data-i18n="foot.contribute">Contribute</a>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-community">
+        <h2 id="f-community" data-i18n="foot.community">Community</h2>
+        <a href="https://discord.gg/TK4nbMGmKt">Discord</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues">Issues</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <span data-i18n="foot.copy">© 2026 Aurora Viewer contributors · GPLv3</span>
+      <span data-i18n="foot.trademark">Second Life is a trademark of Linden Research, Inc. Aurora Viewer is not affiliated with or endorsed by Linden Lab.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
