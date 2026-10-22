@@ -279,13 +279,21 @@
     };
   }
 
+  async function fetchJson(url) {
+    const response = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!response.ok) throw new Error(String(response.status));
+    return response.json();
+  }
+
   async function loadRelease() {
     release = cached('aurora-release', RELEASE_TTL);
     if (!release) {
       try {
-        const response = await fetch(RELEASES_API, { headers: { Accept: 'application/vnd.github+json' } });
-        if (!response.ok) return;
-        release = summarise(await response.json());
+        const list = await fetchJson(RELEASES_API);
+        release = summarise(Array.isArray(list) ? list : []);
+        // The list endpoint is cached at GitHub's edge and has been seen answering []:
+        // fall back to the release marked latest.
+        if (!release) release = summarise([await fetchJson(`https://api.github.com/repos/${REPO}/releases/latest`)]);
         if (release) store.set('aurora-release', { at: Date.now(), value: release });
       } catch (_) {
         return; // Offline or rate limited: keep the values written in the page.
