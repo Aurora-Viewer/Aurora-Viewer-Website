@@ -212,6 +212,7 @@
     'foot.bug': 'Signaler un bug',
     'foot.translate': 'Traduire',
     'foot.contribute': 'Contribuer',
+    'foot.privacy': 'Confidentialité',
     'foot.community': 'Communauté',
     'foot.copy': '© 2026 Contributeurs d’Aurora Viewer · GPLv3',
     'foot.trademark': 'Second Life est une marque de Linden Research, Inc. Aurora Viewer n’est ni affilié à Linden Lab, ni approuvé par Linden Lab.',
@@ -266,7 +267,11 @@
   function applyLanguage(next) {
     lang = next;
     document.documentElement.lang = lang;
-    document.title = STR[lang].title;
+    // A page other than the home page names itself (privacy/index.html).
+    const own = document.documentElement.dataset[lang === 'fr' ? 'titleFr' : 'titleEn'];
+    document.title = own || STR[lang].title;
+    // Long texts written in both languages: only the chosen one shows.
+    $$('[data-lang-block]').forEach((el) => { el.hidden = el.dataset.langBlock !== lang; });
     $$('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       el.innerHTML = lang === 'fr' && FR[key] ? FR[key] : english.get(el);
