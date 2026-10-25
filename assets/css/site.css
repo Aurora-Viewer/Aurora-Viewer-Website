@@ -423,7 +423,7 @@ a.ncard:hover { color: inherit; transform: translateY(-4px); box-shadow: inset 0
 }
 
 /* Responsive */
-@media (max-width: 1140px) {
+@media (max-width: 1360px) {
   .links { display: none; }
 }
 @media (max-width: 980px) {
