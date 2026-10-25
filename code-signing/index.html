@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" class="no-js" data-title-en="Code signing policy — Aurora Viewer" data-title-fr="Politique de signature du code — Aurora Viewer">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code signing policy — Aurora Viewer</title>
+<meta name="description" content="How the Windows releases of Aurora Viewer are signed, by whom, and how to check a download.">
+<meta name="theme-color" content="#070B1F">
+<link rel="canonical" href="https://aurora-viewer.org/code-signing/">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <img src="/assets/img/logo.svg" width="34" height="34" alt="">
+      <span>Aurora Viewer</span>
+    </a>
+    <nav class="links" aria-label="Main" data-i18n-aria="nav.label">
+      <a href="/#features" data-i18n="nav.features">Features</a>
+      <a href="/#photo" data-i18n="nav.photo">Photo</a>
+      <a href="/#create" data-i18n="nav.create">Creators</a>
+      <a href="/#performance" data-i18n="nav.performance">Performance</a>
+      <a href="/#yours" data-i18n="nav.yours">Your way</a>
+      <a href="/#news" data-i18n="nav.news">News</a>
+      <a href="/#community" data-i18n="nav.community">Community</a>
+    </nav>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.label">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+      <a class="btn btn-ghost btn-sm gh" href="https://discord.gg/TK4nbMGmKt" aria-label="Aurora Viewer on Discord" data-i18n-aria="discord.label">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/></svg>
+      </a>
+      <a class="btn btn-ghost btn-sm gh" href="https://github.com/Aurora-Viewer/Aurora-Viewer" aria-label="Aurora Viewer on GitHub" data-i18n-aria="gh.label">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
+      </a>
+      <a class="btn btn-primary btn-sm" href="/#download" data-i18n="nav.download">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="policy-page">
+  <div class="wrap">
+    <article class="policy" lang="en" data-lang-block="en">
+<h1 class="policy-title">Code signing policy</h1>
+<p class="policy-date">Effective date: [TO FILL: date the first signed release is published]</p>
+<p>Free code signing provided by <a href="https://signpath.io">SignPath.io</a>, certificate by <a href="https://signpath.org">SignPath Foundation</a>.</p>
+<p>Signing lets Windows and security software check that the program you downloaded is the one the Aurora team released, unchanged.</p>
+<h2>What is signed</h2>
+<ul><li><strong>The Windows program <code>aurora-viewer.exe</code></strong> of each release published on the project's <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases">GitHub releases page</a>.</li><li><strong>Only builds of the public source code.</strong> The program is built by the project's Release workflow on GitHub Actions, from the version tag of the public repository <a href="https://github.com/Aurora-Viewer/Aurora-Viewer">Aurora-Viewer/Aurora-Viewer</a>, and that workflow sends it to SignPath. A build made on a developer's computer is never signed.</li><li><strong>Every release is approved by hand</strong> by one of the approvers below before it is signed.</li><li>The media plugins the viewer downloads when you open web pages or videos on media faces are other projects' code, built from their sources: they are not signed with this certificate.</li></ul>
+<h2>Team roles</h2>
+<ul><li><strong>Committers and reviewers:</strong> [TO FILL: the members of the Aurora-Viewer GitHub organization with write access, or a link to the organization's people page]</li><li><strong>Approvers:</strong> [TO FILL: the maintainers who approve each signing request]</li></ul>
+<p>Changes from people outside the team are reviewed in a pull request before they are merged. Every team member uses multi-factor authentication on GitHub and on SignPath.</p>
+<h2>Privacy</h2>
+<p>The Aurora team runs no server. The viewer connects to Second Life (or the grid you choose) when you log in, and contacts other services only for the features described in the <a href="/privacy/">privacy policy</a>: what it sends, to whom, and what it keeps on your computer.</p>
+<h2>Check a download</h2>
+<ul><li>In Windows, right-click <code>aurora-viewer.exe</code>, then Properties › Digital Signatures: the signer is <strong>SignPath Foundation</strong>.</li><li>Each release also gives the SHA-256 of its zip file (the <code>.sha256</code> file next to it).</li></ul>
+<h2>Contact</h2>
+<p>To report a signed file that should not be, or a problem with a signature: <a href="mailto:contact@aurora-viewer.org">contact@aurora-viewer.org</a>.</p>
+    </article>
+    <article class="policy" lang="fr" data-lang-block="fr" hidden>
+<h1 class="policy-title">Politique de signature du code (code signing policy)</h1>
+<p class="policy-date">Date d'effet : [À COMPLÉTER : date de la première version signée]</p>
+<p>Free code signing provided by <a href="https://signpath.io">SignPath.io</a>, certificate by <a href="https://signpath.org">SignPath Foundation</a> : la signature est offerte par SignPath.io, avec le certificat de la SignPath Foundation.</p>
+<p>La signature permet à Windows et aux logiciels de sécurité de vérifier que le programme téléchargé est bien celui publié par l'équipe d'Aurora, sans modification.</p>
+<h2>Ce qui est signé</h2>
+<ul><li><strong>Le programme Windows <code>aurora-viewer.exe</code></strong> de chaque version publiée sur la <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases">page des versions GitHub</a> du projet.</li><li><strong>Uniquement les compilations du code source public.</strong> Le programme est compilé par le workflow Release du projet sur GitHub Actions, à partir de l'étiquette de version du dépôt public <a href="https://github.com/Aurora-Viewer/Aurora-Viewer">Aurora-Viewer/Aurora-Viewer</a>, et c'est ce workflow qui l'envoie à SignPath. Une compilation faite sur l'ordinateur d'un développeur n'est jamais signée.</li><li><strong>Chaque version est approuvée à la main</strong> par l'une des personnes chargées de l'approbation ci-dessous avant d'être signée.</li><li>Les plugins média que le viewer télécharge quand vous ouvrez des pages web ou des vidéos sur des faces média sont le code d'autres projets, compilé à partir de leurs sources : ils ne sont pas signés avec ce certificat.</li></ul>
+<h2>Rôles de l'équipe</h2>
+<ul><li><strong>Auteurs et relecteurs :</strong> [À COMPLÉTER : les membres de l'organisation GitHub Aurora-Viewer ayant les droits d'écriture, ou un lien vers sa page des membres]</li><li><strong>Approbation :</strong> [À COMPLÉTER : les mainteneurs qui approuvent chaque demande de signature]</li></ul>
+<p>Les modifications proposées par des personnes extérieures à l'équipe sont relues dans une pull request avant d'être fusionnées. Chaque membre de l'équipe utilise l'authentification à plusieurs facteurs sur GitHub et sur SignPath.</p>
+<h2>Confidentialité</h2>
+<p>L'équipe d'Aurora n'exploite aucun serveur. Le viewer se connecte à Second Life (ou à la grille de votre choix) quand vous vous connectez, et ne contacte d'autres services que pour les fonctions décrites dans la <a href="/privacy/">politique de confidentialité</a> : ce qu'il envoie, à qui, et ce qu'il garde sur votre ordinateur.</p>
+<h2>Vérifier un téléchargement</h2>
+<ul><li>Dans Windows, clic droit sur <code>aurora-viewer.exe</code>, puis Propriétés › Signatures numériques : le signataire est <strong>SignPath Foundation</strong>.</li><li>Chaque version donne aussi l'empreinte SHA-256 de son fichier zip (le fichier <code>.sha256</code> à côté).</li></ul>
+<h2>Contact</h2>
+<p>Pour signaler un fichier signé qui ne devrait pas l'être, ou un problème de signature : <a href="mailto:contact@aurora-viewer.org">contact@aurora-viewer.org</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" width="30" height="30" alt=""><span>Aurora Viewer</span></a>
+        <p class="about" data-i18n="foot.about">A modern Second Life viewer, written from scratch in Rust.</p>
+      </div>
+      <nav class="fcol" aria-labelledby="f-product">
+        <h2 id="f-product" data-i18n="foot.product">Product</h2>
+        <a data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-i18n="foot.download">Download</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">Linux</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases" data-i18n="foot.notes">Release notes</a>
+        <a href="/#roadmap" data-i18n="foot.roadmap">Roadmap</a>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-project">
+        <h2 id="f-project" data-i18n="foot.project">Project</h2>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer" data-i18n="foot.source">Source code</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose" data-i18n="foot.bug">Report a bug</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/TRANSLATING.md" data-i18n="foot.translate">Translate</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer#contributing" data-i18n="foot.contribute">Contribute</a>
+        <a href="/privacy/" data-i18n="foot.privacy">Privacy</a>
+        <a href="/code-signing/">Code signing policy</a>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-community">
+        <h2 id="f-community" data-i18n="foot.community">Community</h2>
+        <a href="https://discord.gg/TK4nbMGmKt">Discord</a>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues">Issues</a>
+      </nav>
+    </div>
+    <div class="legal">
+      <span data-i18n="foot.copy">© 2026 Aurora Viewer contributors · GPLv3</span>
+      <span data-i18n="foot.trademark">Second Life is a trademark of Linden Research, Inc. Aurora Viewer is not affiliated with or endorsed by Linden Lab.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
