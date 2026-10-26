@@ -16,14 +16,14 @@
   // Strings written by this script, in both languages.
   const STR = {
     en: {
-      title: 'Aurora Viewer — a modern Second Life viewer',
+      title: 'Aurora Viewer | A modern Second Life viewer',
       'dl.linux': 'Download for Linux',
       'dl.linux-guide': 'Get it on Linux',
       mb: 'MB',
       more: 'Read more',
     },
     fr: {
-      title: 'Aurora Viewer — un viewer Second Life moderne',
+      title: 'Aurora Viewer | Un viewer Second Life moderne',
       'dl.linux': 'Télécharger pour Linux',
       'dl.linux-guide': 'Installer sur Linux',
       mb: 'Mo',
