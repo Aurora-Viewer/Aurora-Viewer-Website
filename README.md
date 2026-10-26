@@ -39,7 +39,9 @@ the browser, then the visitor's choice (EN / FR buttons), or `?lang=fr`.
 
 Scene captures (`world`, `build-land`, `login`, `viewfinder`) are WebP in two
 widths (`name-1280.webp`, `name-2560.webp`), used through `srcset`; window
-captures (`win-*.webp`) are single files at their native size. To replace one,
+captures (`win-*.webp`) are single files at their native size, like
+`photo-looks.webp`, the photo filters panel (the viewer's
+`docs/screenshots/photo-looks.webp`). To replace one,
 overwrite the files, keeping the names, and update the image's `width` and
 `height` in `index.html` if its size changed. In the photo section, the
 `.vf-lock` element is placed over the viewfinder's green AF point in percent
