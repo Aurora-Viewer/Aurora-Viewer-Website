@@ -375,6 +375,7 @@ svg.i {
 .pf p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
 
 /* Your way */
+.looks { margin: 56px auto 0; max-width: 960px; }
 .side-shot { position: relative; padding-top: 24px; }
 .cap { margin: 16px 0 0; color: var(--muted); font-size: 13.5px; text-align: center; }
 
