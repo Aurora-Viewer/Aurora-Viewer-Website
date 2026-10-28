@@ -241,6 +241,7 @@
     'foot.translate': 'Traduire',
     'foot.contribute': 'Contribuer',
     'foot.privacy': 'Confidentialité',
+    'foot.ai': 'Usage de l’IA',
     'foot.community': 'Communauté',
     'foot.copy': '© 2026 Contributeurs d’Aurora Viewer · GPLv3',
     'foot.trademark': 'Second Life est une marque de Linden Research, Inc. Aurora Viewer n’est ni affilié à Linden Lab, ni approuvé par Linden Lab.',
