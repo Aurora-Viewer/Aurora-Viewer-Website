@@ -58,6 +58,7 @@
     'dl.linux': 'Télécharger pour Linux',
     'dl.macos-guide': 'Installer sur macOS',
     'dl.macos': 'Télécharger pour macOS',
+    'dl.experimental': 'Expérimental',
     'meta.license': 'Libre et gratuit, GPLv3',
     'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
     'float.fps': '5,2 ms par image, six fenêtres ouvertes',
