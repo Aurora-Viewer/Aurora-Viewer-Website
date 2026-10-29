@@ -9,7 +9,7 @@
   const NEWS_FEED = `https://raw.githubusercontent.com/${REPO}/main/news/`;
   const RELEASE_TTL = 60 * 60 * 1000;
   // A new key drops the answers browsers kept from before the symbols fix.
-  const RELEASE_KEY = 'aurora-release-2';
+  const RELEASE_KEY = 'aurora-release-3';
   const NEWS_TTL = 30 * 60 * 1000;
   const NEWS_SHOWN = 3;
 
@@ -19,6 +19,8 @@
       title: 'Aurora Viewer | A modern Second Life viewer',
       'dl.linux': 'Download for Linux',
       'dl.linux-guide': 'Get it on Linux',
+      'dl.macos': 'Download for macOS',
+      'dl.macos-guide': 'Get it on macOS',
       mb: 'MB',
       more: 'Read more',
     },
@@ -26,6 +28,8 @@
       title: 'Aurora Viewer | Un viewer Second Life moderne',
       'dl.linux': 'Télécharger pour Linux',
       'dl.linux-guide': 'Installer sur Linux',
+      'dl.macos': 'Télécharger pour macOS',
+      'dl.macos-guide': 'Installer sur macOS',
       mb: 'Mo',
       more: 'En savoir plus',
     },
@@ -52,6 +56,8 @@
     'dl.windows': 'Télécharger pour Windows',
     'dl.linux-guide': 'Installer sur Linux',
     'dl.linux': 'Télécharger pour Linux',
+    'dl.macos-guide': 'Installer sur macOS',
+    'dl.macos': 'Télécharger pour macOS',
     'meta.license': 'Libre et gratuit, GPLv3',
     'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
     'float.fps': '5,2 ms par image, six fenêtres ouvertes',
@@ -217,8 +223,8 @@
     'road.fsr.text': 'Et son anticrénelage natif, sur toutes les marques de cartes graphiques.',
     'road.water.title': 'Une eau plus vivante, finalisée',
     'road.water.text': 'Vagues, écume, caustiques et sillages sortis de leur stade expérimental.',
-    'road.mac.title': 'Version macOS',
-    'road.mac.text': 'Le code est portable ; la compilation reste à valider.',
+    'road.updates.title': 'Mises à jour en un clic sur Mac et Linux',
+    'road.updates.text': 'Aujourd’hui, le viewer indique la nouvelle version ; il l’installera pour vous, comme sous Windows.',
     'news.eyebrow': 'Actualités',
     'news.title': 'Les dernières nouvelles d’Aurora.',
     'open.eyebrow': 'Open source',
@@ -345,6 +351,7 @@
       url: viewer.html_url,
       windows: asset(/windows.*\.(zip|msi|exe)$/i),
       linux: asset(/linux.*\.(tar\.(gz|xz|zst)|appimage|zip|deb|rpm)$/i),
+      macos: asset(/macos.*\.dmg$/i),
     };
   }
 
@@ -380,7 +387,7 @@
     if (!release) return;
     $$('[data-version]').forEach((el) => { el.textContent = release.version; });
     $$('[data-release-link]').forEach((el) => { el.href = release.url; });
-    ['windows', 'linux'].forEach((os) => {
+    ['windows', 'linux', 'macos'].forEach((os) => {
       const file = release[os];
       if (!file) return;
       $$(`[data-dl="${os}"]`).forEach((el) => { el.href = file.url; });
@@ -388,13 +395,15 @@
         el.textContent = `· ${Math.round(file.size / 1e6)} ${STR[lang].mb}`;
       });
     });
-    if (release.linux) {
-      $$('[data-dl-label="linux"]').forEach((el) => {
-        el.setAttribute('data-i18n', 'dl.linux');
-        english.set(el, STR.en['dl.linux']);
-        el.innerHTML = STR[lang]['dl.linux'];
+    // With a file to download, the install guide's label becomes "Download for…".
+    ['linux', 'macos'].forEach((os) => {
+      if (!release[os]) return;
+      $$(`[data-dl-label="${os}"]`).forEach((el) => {
+        el.setAttribute('data-i18n', `dl.${os}`);
+        english.set(el, STR.en[`dl.${os}`]);
+        el.innerHTML = STR[lang][`dl.${os}`];
       });
-    }
+    });
   }
 
   // ---- News (same Markdown files as the viewer's login screen) ---------------
