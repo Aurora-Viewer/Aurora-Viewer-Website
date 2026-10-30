@@ -52,7 +52,7 @@
     'pill.after': 'est sortie',
     'pill.notes': 'Nouveautés',
     'hero.title': 'Second Life,<br><span class="glow-text">enfin fluide.</span>',
-    'hero.lead': 'Un viewer Second Life moderne, écrit de zéro en Rust. Un rendu Vulkan, une interface apaisée, et le monde que vous connaissez déjà.',
+    'hero.lead': 'Un viewer Second Life moderne, écrit en Rust. Un rendu Vulkan, une interface apaisée, et le monde que vous connaissez déjà.',
     'dl.windows': 'Télécharger pour Windows',
     'dl.linux-guide': 'Installer sur Linux',
     'dl.linux': 'Télécharger pour Linux',
@@ -233,7 +233,7 @@
     'open.gpl.title': 'Libre, sous GPLv3',
     'open.gpl.text': 'Lisez le code, compilez-le vous-même, et gardez-le libre pour tous.',
     'open.rust.title': 'Écrit en Rust',
-    'open.rust.text': 'De zéro, sur wgpu et Vulkan, en parlant aux serveurs exactement comme ils l’attendent.',
+    'open.rust.text': 'Un nouveau code sur wgpu et Vulkan, pas un fork, dont les parties portées du viewer Second Life sont créditées fichier par fichier. Il parle aux serveurs exactement comme ils l’attendent.',
     'open.testers.title': 'Façonné par ses testeurs',
     'open.testers.text': 'Signalez un bug en un clic depuis le viewer, proposez une idée, ou aidez à le traduire.',
     'open.chip': 'Accès anticipé · 0.x',
@@ -242,7 +242,7 @@
     'final.title': 'Entrez dans un <span class="glow-text">Second&nbsp;Life plus fluide.</span>',
     'final.lead': 'Libre, gratuit, et prêt pour votre prochaine connexion.',
     'final.dl': 'Télécharger Aurora Viewer',
-    'foot.about': 'Un viewer Second Life moderne, écrit de zéro en Rust.',
+    'foot.about': 'Un viewer Second Life moderne, écrit en Rust.',
     'foot.product': 'Produit',
     'foot.download': 'Télécharger',
     'foot.notes': 'Notes de version',
@@ -256,7 +256,7 @@
     'foot.ai': 'Usage de l’IA',
     'foot.community': 'Communauté',
     'foot.copy': '© 2026 Contributeurs d’Aurora Viewer · GPLv3',
-    'foot.trademark': 'Second Life est une marque de Linden Research, Inc. Aurora Viewer n’est ni affilié à Linden Lab, ni approuvé par Linden Lab.',
+    'foot.trademark': 'Ce logiciel n’est ni fourni ni pris en charge par Linden Lab, l’éditeur de Second Life. Second Life est une marque de Linden Research, Inc.',
   };
 
   const store = {
