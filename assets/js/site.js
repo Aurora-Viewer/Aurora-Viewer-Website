@@ -220,7 +220,6 @@
     'road.eyebrow': 'Feuille de route',
     'road.title': 'En chemin.',
     soon: 'Bientôt',
-    new: 'Nouveau',
     'road.fsr.title': 'Upscaling AMD FSR',
     'road.fsr.text': 'Et son anticrénelage natif, sur toutes les marques de cartes graphiques.',
     'road.water.title': 'Une eau plus vivante, finalisée',
