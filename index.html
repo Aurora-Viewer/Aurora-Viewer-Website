@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aurora Viewer | A modern Second Life viewer</title>
-<meta name="description" content="Aurora Viewer is a free, open source Second Life viewer written from scratch in Rust, with a Vulkan renderer, a calm interface and the world you already know.">
+<meta name="description" content="Aurora Viewer is a free, open source Second Life viewer written in Rust, with a Vulkan renderer, a calm interface and the world you already know.">
 <meta name="theme-color" content="#070B1F">
 <link rel="canonical" href="https://aurora-viewer.org/">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aurora Viewer">
 <meta property="og:title" content="Aurora Viewer | A modern Second Life viewer">
-<meta property="og:description" content="Free and open source, written from scratch in Rust, with a Vulkan renderer and a calm interface.">
+<meta property="og:description" content="Free and open source, written in Rust, with a Vulkan renderer and a calm interface.">
 <meta property="og:url" content="https://aurora-viewer.org/">
 <meta property="og:image" content="https://aurora-viewer.org/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -81,7 +81,7 @@
     </a>
 
     <h1 class="display h1 rise d1" data-i18n="hero.title">Second Life,<br><span class="glow-text">beautifully fast.</span></h1>
-    <p class="lead rise d2" data-i18n="hero.lead">A modern Second Life viewer, written from scratch in Rust. A Vulkan renderer, a calm interface, and the world you already know.</p>
+    <p class="lead rise d2" data-i18n="hero.lead">A modern Second Life viewer, written in Rust. A Vulkan renderer, a calm interface, and the world you already know.</p>
 
     <div id="download" class="cta rise d3">
       <a class="btn btn-primary" data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest">
@@ -93,11 +93,12 @@
         <span class="lbl"><span data-i18n="dl.linux-guide" data-dl-label="linux">Get it on Linux</span> <span class="size" data-dl-size="linux"></span></span>
       </a>
       <a class="btn btn-glass" data-dl="macos" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/MACOS.md">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077"/><path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2"/></svg>
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19l18 0"/><path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8"/></svg>
         <span class="lbl"><span data-i18n="dl.macos-guide" data-dl-label="macos">Get it on macOS</span> <span class="size" data-dl-size="macos"></span></span>
+        <span class="exp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg><span data-i18n="dl.experimental">Experimental</span></span>
       </a>
     </div>
-    <p class="meta rise d4">v<span data-version>0.7.4</span> · <span data-release-date data-date="2026-10-22T18:58:36Z">October 22, 2026</span> · <span data-i18n="meta.license">Free and open source, GPLv3</span></p>
+    <p class="meta rise d4">v<span data-version>0.8.3</span> · <span data-release-date data-date="2026-10-29T22:07:36Z">October 29, 2026</span> · <span data-i18n="meta.license">Free and open source, GPLv3</span></p>
 
     <div class="shot rise d5">
       <div class="shot-glow"></div>
@@ -496,7 +497,7 @@
     <div class="grid3">
       <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.fsr.title">AMD FSR upscaling</h3><p data-i18n="road.fsr.text">And its native anti-aliasing, on every brand of graphics card.</p></div>
       <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.water.title">Livelier water, finished</h3><p data-i18n="road.water.text">Waves, foam, caustics and wakes out of their experimental stage.</p></div>
-      <div class="card scard"><span class="chip" data-i18n="new">New</span><h3 data-i18n="road.mac.title">Now on macOS</h3><p data-i18n="road.mac.text">Apple Silicon Macs, drawn natively through Metal. Web pages and video in the world come next.</p></div>
+      <div class="card scard"><span class="chip" data-i18n="soon">Soon</span><h3 data-i18n="road.updates.title">One-click updates on Mac and Linux</h3><p data-i18n="road.updates.text">Today the viewer points to the new release; it will install it for you, as on Windows.</p></div>
     </div>
   </div>
 </section>
@@ -506,9 +507,9 @@
     <p class="eyebrow" data-i18n="news.eyebrow">News</p>
     <h2 class="display h2" data-i18n="news.title">The latest from Aurora.</h2>
     <div class="grid3" data-news>
-      <a class="card ncard" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/tag/v0.8.2"><time datetime="2026-10-29">October 29, 2026</time><h3>Aurora 0.8.2 now speaks Japanese, 日本語</h3><p>Aurora is now available in Japanese: choose 日本語 in Preferences › Interface › Language, or let the system language pick it on a Japanese Windows. Every message is translated with Second Life's official Japanese terms, the interface draws with Japanese fonts, and dates read the Japanese way.</p><span class="more">Read more →</span></a>
-      <article class="card ncard"><time datetime="2026-10-29">October 29, 2026</time><h3>PBR terrain, and the HDR switch</h3><p>Regions whose ground uses PBR materials now render with them instead of a flat grey, as in the Legacy Viewer, and estate managers see a ground-cover change on the terrain before they apply it. Preferences › Graphics › Image also gets the Legacy Viewer's HDR and Emissive switch, on by default, for those who prefer the older look.</p></article>
-      <article class="card ncard"><time datetime="2026-10-29">October 29, 2026</time><h3>Chat and name tags</h3><p>Ctrl+Shift+Enter starts a new line in a message, and pasted paragraphs keep their shape. Your own objects' script errors show in red in the nearby chat instead of popping a window. Three dots bounce on the picture of a resident typing to you, your friends' name plates take the friends' colour, and a right click on your L$ balance hides it while you stream.</p></article>
+      <a class="card ncard" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/tag/v0.8.3"><time datetime="2026-10-29">October 29, 2026</time><h3>Aurora 0.8.3 runs natively on the Mac</h3><p>Aurora now runs natively on Apple Silicon Macs, drawn through Metal: every release carries a macOS application to drag into Applications. Web pages and video in the world work there too: the first time they are needed, the viewer downloads its media plugins by itself. The install guide is in docs/MACOS.md.</p><span class="more">Read more →</span></a>
+      <article class="card ncard"><time datetime="2026-10-29">October 29, 2026</time><h3>Messages that matter, in front of you</h3><p>A message an estate manager sends to the region now shows as a card in the middle of the screen, like a friendship offer, and is kept under the bell and in nearby chat. A group notice shows its group, its insignia and its attachment, ready to save. The L$ you pay a resident now appear in your conversation with them, like the L$ they pay you, and stay there when you open it again.</p></article>
+      <article class="card ncard"><time datetime="2026-10-29">October 29, 2026</time><h3>For photos and creators</h3><p>In the photo viewfinder, Shift + click keeps every avatar of a group shot sharp, your HUDs answer clicks, and the Poser button poses the avatar over the shot. The poser now works with every shape, asks before closing loses a pose, and undoes with Ctrl+Z. LiveMesh previews an animation on a saved local model, Bento tails and wings included.</p></article>
     </div>
   </div>
 </section>
@@ -526,7 +527,7 @@
       <div class="card ocard">
         <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8l-4 4l4 4"/><path d="M17 8l4 4l-4 4"/><path d="M14 4l-4 16"/></svg></span>
         <h3 data-i18n="open.rust.title">Written in Rust</h3>
-        <p data-i18n="open.rust.text">From scratch, on wgpu and Vulkan, while speaking to the servers exactly as they expect.</p>
+        <p data-i18n="open.rust.text">A new codebase on wgpu and Vulkan, not a fork, with the parts ported from the Second Life viewer credited file by file. It speaks to the servers exactly as they expect.</p>
       </div>
       <div class="card ocard">
         <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></span>
@@ -572,6 +573,7 @@
       </a>
       <a class="btn btn-glass" data-dl="macos" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/MACOS.md">
         <span data-i18n="dl.macos-guide" data-dl-label="macos">Get it on macOS</span>
+        <span class="exp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg><span data-i18n="dl.experimental">Experimental</span></span>
       </a>
     </div>
   </div>
@@ -584,7 +586,7 @@
     <div class="fgrid">
       <div>
         <a class="brand" href="#top"><img src="assets/img/logo.svg" width="30" height="30" alt=""><span>Aurora Viewer</span></a>
-        <p class="about" data-i18n="foot.about">A modern Second Life viewer, written from scratch in Rust.</p>
+        <p class="about" data-i18n="foot.about">A modern Second Life viewer, written in Rust.</p>
       </div>
       <nav class="fcol" aria-labelledby="f-product">
         <h2 id="f-product" data-i18n="foot.product">Product</h2>
@@ -612,7 +614,7 @@
     </div>
     <div class="legal">
       <span data-i18n="foot.copy">© 2026 Aurora Viewer contributors · GPLv3</span>
-      <span data-i18n="foot.trademark">Second Life is a trademark of Linden Research, Inc. Aurora Viewer is not affiliated with or endorsed by Linden Lab.</span>
+      <span data-i18n="foot.trademark">This software is not provided or supported by Linden Lab, the makers of Second Life. Second Life is a trademark of Linden Research, Inc.</span>
     </div>
   </div>
 </footer>

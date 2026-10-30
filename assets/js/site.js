@@ -9,7 +9,7 @@
   const NEWS_FEED = `https://raw.githubusercontent.com/${REPO}/main/news/`;
   const RELEASE_TTL = 60 * 60 * 1000;
   // A new key drops the answers browsers kept from before the symbols fix.
-  const RELEASE_KEY = 'aurora-release-2';
+  const RELEASE_KEY = 'aurora-release-3';
   const NEWS_TTL = 30 * 60 * 1000;
   const NEWS_SHOWN = 3;
 
@@ -52,12 +52,13 @@
     'pill.after': 'est sortie',
     'pill.notes': 'Nouveautés',
     'hero.title': 'Second Life,<br><span class="glow-text">enfin fluide.</span>',
-    'hero.lead': 'Un viewer Second Life moderne, écrit de zéro en Rust. Un rendu Vulkan, une interface apaisée, et le monde que vous connaissez déjà.',
+    'hero.lead': 'Un viewer Second Life moderne, écrit en Rust. Un rendu Vulkan, une interface apaisée, et le monde que vous connaissez déjà.',
     'dl.windows': 'Télécharger pour Windows',
     'dl.linux-guide': 'Installer sur Linux',
     'dl.linux': 'Télécharger pour Linux',
     'dl.macos-guide': 'Installer sur macOS',
     'dl.macos': 'Télécharger pour macOS',
+    'dl.experimental': 'Expérimental',
     'meta.license': 'Libre et gratuit, GPLv3',
     'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
     'float.fps': '5,2 ms par image, six fenêtres ouvertes',
@@ -224,8 +225,8 @@
     'road.fsr.text': 'Et son anticrénelage natif, sur toutes les marques de cartes graphiques.',
     'road.water.title': 'Une eau plus vivante, finalisée',
     'road.water.text': 'Vagues, écume, caustiques et sillages sortis de leur stade expérimental.',
-    'road.mac.title': 'Maintenant sur macOS',
-    'road.mac.text': 'Sur les Mac Apple Silicon, dessiné nativement avec Metal. Les pages web et la vidéo dans le monde arrivent ensuite.',
+    'road.updates.title': 'Mises à jour en un clic sur Mac et Linux',
+    'road.updates.text': 'Aujourd’hui, le viewer indique la nouvelle version ; il l’installera pour vous, comme sous Windows.',
     'news.eyebrow': 'Actualités',
     'news.title': 'Les dernières nouvelles d’Aurora.',
     'open.eyebrow': 'Open source',
@@ -233,7 +234,7 @@
     'open.gpl.title': 'Libre, sous GPLv3',
     'open.gpl.text': 'Lisez le code, compilez-le vous-même, et gardez-le libre pour tous.',
     'open.rust.title': 'Écrit en Rust',
-    'open.rust.text': 'De zéro, sur wgpu et Vulkan, en parlant aux serveurs exactement comme ils l’attendent.',
+    'open.rust.text': 'Un nouveau code sur wgpu et Vulkan, pas un fork, dont les parties portées du viewer Second Life sont créditées fichier par fichier. Il parle aux serveurs exactement comme ils l’attendent.',
     'open.testers.title': 'Façonné par ses testeurs',
     'open.testers.text': 'Signalez un bug en un clic depuis le viewer, proposez une idée, ou aidez à le traduire.',
     'open.chip': 'Accès anticipé · 0.x',
@@ -242,7 +243,7 @@
     'final.title': 'Entrez dans un <span class="glow-text">Second&nbsp;Life plus fluide.</span>',
     'final.lead': 'Libre, gratuit, et prêt pour votre prochaine connexion.',
     'final.dl': 'Télécharger Aurora Viewer',
-    'foot.about': 'Un viewer Second Life moderne, écrit de zéro en Rust.',
+    'foot.about': 'Un viewer Second Life moderne, écrit en Rust.',
     'foot.product': 'Produit',
     'foot.download': 'Télécharger',
     'foot.notes': 'Notes de version',
@@ -256,7 +257,7 @@
     'foot.ai': 'Usage de l’IA',
     'foot.community': 'Communauté',
     'foot.copy': '© 2026 Contributeurs d’Aurora Viewer · GPLv3',
-    'foot.trademark': 'Second Life est une marque de Linden Research, Inc. Aurora Viewer n’est ni affilié à Linden Lab, ni approuvé par Linden Lab.',
+    'foot.trademark': 'Ce logiciel n’est ni fourni ni pris en charge par Linden Lab, l’éditeur de Second Life. Second Life est une marque de Linden Research, Inc.',
   };
 
   const store = {
@@ -352,7 +353,7 @@
       url: viewer.html_url,
       windows: asset(/windows.*\.(zip|msi|exe)$/i),
       linux: asset(/linux.*\.(tar\.(gz|xz|zst)|appimage|zip|deb|rpm)$/i),
-      macos: asset(/macos.*\.(dmg|zip)$/i),
+      macos: asset(/macos.*\.dmg$/i),
     };
   }
 
@@ -396,8 +397,7 @@
         el.textContent = `· ${Math.round(file.size / 1e6)} ${STR[lang].mb}`;
       });
     });
-    // Linux and macOS buttons lead to their install guide until a release
-    // carries their file, then download it
+    // With a file to download, the install guide's label becomes "Download for…".
     ['linux', 'macos'].forEach((os) => {
       if (!release[os]) return;
       $$(`[data-dl-label="${os}"]`).forEach((el) => {
