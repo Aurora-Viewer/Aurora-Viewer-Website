@@ -394,6 +394,7 @@ svg.i {
   font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase;
 }
 .chip.violet { background: rgba(139, 92, 246, .18); color: var(--violet-pale); }
+.chip.amber { background: rgba(250, 204, 21, .14); color: #FACC15; } /* the download buttons' Experimental */
 .scard h3, .ocard h3, .ncard h3 { margin: 18px 0 6px; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.35; }
 .scard p, .ocard p, .ncard p { margin: 0; color: var(--muted); font-size: 14.5px; }
 .ncard { display: flex; flex-direction: column; }
