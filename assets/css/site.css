@@ -162,30 +162,38 @@ svg.i {
   mask-image: linear-gradient(#000 0%, #000 55%, transparent 90%);
   animation: twinkle 7s ease-in-out infinite alternate;
 }
+/* Each ribbon is a radial gradient blurred by 70px, baked into an image with 210px (3 sigma) of margin.
+   A live filter: blur() was redrawn by the GPU on every frame of the drift, which made the page
+   stutter in Chrome with hardware acceleration. The box keeps its size and place: the margin is padding. */
 .ribbon {
-  position: absolute; border-radius: 50%; filter: blur(70px); mix-blend-mode: screen;
+  position: absolute; box-sizing: content-box; margin: -210px; padding: 210px;
+  background: center / 100% 100% no-repeat; mix-blend-mode: screen;
   will-change: transform; animation: drift var(--d, 22s) ease-in-out infinite alternate;
 }
-.r1 { --r: -14deg; --d: 24s; width: 1100px; height: 240px; left: -12%; top: 230px; background: radial-gradient(closest-side, rgba(94, 234, 212, .75), rgba(94, 234, 212, 0)); }
-.r2 { --r: -8deg; --d: 19s; width: 1000px; height: 300px; left: 28%; top: 150px; background: radial-gradient(closest-side, rgba(139, 92, 246, .8), rgba(139, 92, 246, 0)); }
-.r3 { --r: 10deg; --d: 27s; width: 900px; height: 260px; left: 52%; top: 300px; background: radial-gradient(closest-side, rgba(79, 70, 229, .85), rgba(79, 70, 229, 0)); }
-.r4 { --r: -20deg; --d: 16s; width: 620px; height: 140px; left: 8%; top: 120px; background: radial-gradient(closest-side, rgba(165, 243, 252, .5), rgba(165, 243, 252, 0)); }
+.r1 { --r: -14deg; --d: 24s; width: 1100px; height: 240px; left: -12%; top: 230px; background-image: url(../img/aurora-r1.webp); }
+.r2 { --r: -8deg; --d: 19s; width: 1000px; height: 300px; left: 28%; top: 150px; background-image: url(../img/aurora-r2.webp); }
+.r3 { --r: 10deg; --d: 27s; width: 900px; height: 260px; left: 52%; top: 300px; background-image: url(../img/aurora-r3.webp); }
+.r4 { --r: -20deg; --d: 16s; width: 620px; height: 140px; left: 8%; top: 120px; background-image: url(../img/aurora-r4.webp); }
+/* The stripes slide with a transform, not background-position, so the browser does not repaint them every frame. */
 .rays {
-  position: absolute; left: -10%; right: -10%; top: 80px; height: 520px;
-  background: repeating-linear-gradient(90deg,
-    rgba(94, 234, 212, 0) 0 18px, rgba(94, 234, 212, .10) 18px 20px,
-    rgba(167, 139, 250, 0) 20px 34px, rgba(167, 139, 250, .08) 34px 35px);
+  position: absolute; left: -10%; right: -10%; top: 80px; height: 520px; overflow: hidden;
   -webkit-mask-image: radial-gradient(60% 45% at 45% 55%, #000, transparent 75%);
   mask-image: radial-gradient(60% 45% at 45% 55%, #000, transparent 75%);
   transform: skewX(-14deg); mix-blend-mode: screen;
-  animation: shimmer 30s linear infinite;
+}
+.rays::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -700px; right: 0;
+  background: repeating-linear-gradient(90deg,
+    rgba(94, 234, 212, 0) 0 18px, rgba(94, 234, 212, .10) 18px 20px,
+    rgba(167, 139, 250, 0) 20px 34px, rgba(167, 139, 250, .08) 34px 35px);
+  will-change: transform; animation: shimmer 30s linear infinite;
 }
 @keyframes drift {
   0% { transform: translate3d(0, 0, 0) rotate(var(--r)) scaleX(1); }
   50% { transform: translate3d(60px, -24px, 0) rotate(calc(var(--r) + 4deg)) scaleX(1.12); }
   100% { transform: translate3d(-40px, 18px, 0) rotate(calc(var(--r) - 3deg)) scaleX(.94); }
 }
-@keyframes shimmer { from { background-position: 0 0; } to { background-position: 700px 0; } }
+@keyframes shimmer { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(700px, 0, 0); } }
 @keyframes twinkle { from { opacity: .55; } to { opacity: .85; } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -489,7 +497,7 @@ a.ncard:hover { color: inherit; transform: translateY(-4px); box-shadow: inset 0
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .ribbon, .rays, .stars, .float, .rise { animation: none !important; }
+  .ribbon, .rays::before, .stars, .float, .rise { animation: none !important; }
   .bar-fill { animation: none !important; transform: none; }
   .vf-lock, .tour-panel img, .tour-panel p, .tour-progress span { animation: none !important; }
   .btn, .shot .frame, .fcard, .gallery .frame, a.ncard { transition: none; }
