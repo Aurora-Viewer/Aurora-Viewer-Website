@@ -263,6 +263,7 @@
     'foot.about': 'Un viewer Second Life moderne, écrit en Rust.',
     'foot.product': 'Produit',
     'foot.download': 'Télécharger',
+    'foot.uninstall': 'Désinstaller',
     'foot.notes': 'Notes de version',
     'foot.roadmap': 'Feuille de route',
     'foot.project': 'Projet',
