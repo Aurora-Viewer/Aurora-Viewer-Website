@@ -196,7 +196,6 @@ svg.i {
 @keyframes shimmer { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(700px, 0, 0); } }
 @keyframes twinkle { from { opacity: .55; } to { opacity: .85; } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-@keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes bob { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 
 /* Hero */
@@ -269,20 +268,16 @@ svg.i {
 .card { border-radius: 14px; background: linear-gradient(180deg, rgba(232, 237, 251, .05), rgba(232, 237, 251, .02)); box-shadow: inset 0 0 0 1px var(--line); }
 
 /* Performance */
-.bars { padding: 36px; }
-.bar-row + .bar-row { margin-top: 26px; }
-.bar-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
-.bar-head .who { font-weight: 600; font-size: 15px; }
-.bar-head .val { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; }
-.bar-head .val small { font-size: 15px; font-weight: 400; color: var(--muted); }
-.bar { height: 14px; border-radius: 4px; background: rgba(232, 237, 251, .06); overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 4px; transform-origin: 0 50%; transform: scaleX(0); }
-.in-view .bar-fill { animation: grow 1.6s var(--ease) .2s both; }
-.no-js .bar-fill { transform: none; }
-.bar-a { width: 100%; background: linear-gradient(90deg, var(--teal), var(--violet) 55%, var(--indigo)); }
-.bar-b { width: 20%; background: #6F7BA0; }
-.bars .note { margin: 28px 0 0; color: var(--muted-dim); font-family: var(--mono); font-size: 12.5px; }
-.minis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
+.lanes { padding: 32px 36px; }
+.lanes .note { margin: 0 0 6px; color: var(--muted-dim); font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; }
+.lanes dl { margin: 0; }
+.lanes dl > div { display: flex; gap: 18px; padding: 14px 0; }
+.lanes dl > div + div { box-shadow: 0 -1px 0 var(--line); }
+.lanes dt { flex: 0 0 104px; padding-top: 2px; color: var(--teal); font-family: var(--mono); font-size: 12.5px; }
+.lanes dd { margin: 0; }
+.lanes dd b { display: block; font-weight: 600; font-size: 15px; }
+.lanes dd span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.minis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
 .mini { padding: 24px; }
 .mini h3 { margin: 16px 0 6px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
 .mini p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
@@ -462,6 +457,9 @@ a.ncard:hover { color: inherit; transform: translateY(-4px); box-shadow: inset 0
 @media (max-width: 1360px) {
   .links { display: none; }
 }
+@media (max-width: 1180px) {
+  .minis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 980px) {
   .split, .photo-head { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .photo-head { gap: 22px; }
@@ -479,7 +477,8 @@ a.ncard:hover { color: inherit; transform: translateY(-4px); box-shadow: inset 0
   .hero { padding-top: 64px; }
   .cta .btn { width: 100%; }
   .stats { grid-template-columns: minmax(0, 1fr); margin-top: 24px; }
-  .fcard, .bars { padding: 26px; }
+  .fcard, .lanes { padding: 26px; }
+  .lanes dt { flex-basis: 84px; }
   .fgrid { grid-template-columns: minmax(0, 1fr); }
   .shot .frame { transform: none; }
   .final { margin-top: 120px; padding: 100px 0 140px; }
@@ -498,7 +497,6 @@ a.ncard:hover { color: inherit; transform: translateY(-4px); box-shadow: inset 0
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .ribbon, .rays::before, .stars, .float, .rise { animation: none !important; }
-  .bar-fill { animation: none !important; transform: none; }
   .vf-lock, .tour-panel img, .tour-panel p, .tour-progress span { animation: none !important; }
   .btn, .shot .frame, .fcard, .gallery .frame, a.ncard { transition: none; }
 }
