@@ -403,7 +403,7 @@
     'faq.keep.q': 'Mes réglages sont-ils conservés lors d’une mise à jour ?',
     'faq.keep.a': 'Sous Windows, la proposition de mise à jour vous dit, avant que vous acceptiez, si votre cache et vos réglages sont conservés. Sous Linux et macOS, ils ne sont pas dans le dossier du viewer : une nouvelle version les garde.',
     'faq.media.q': 'Les pages web ou les vidéos restent vides.',
-    'faq.media.a': 'La première fois qu’ils sont nécessaires, le viewer demande avant de télécharger les plugins média, une seule fois. « Pas maintenant » laisse un bouton Télécharger dans Préférences › Son et voix › Média. Sous Linux, vérifiez aussi les paquets GStreamer.',
+    'faq.media.a': 'La première fois qu’ils sont nécessaires, le viewer demande avant de télécharger les plugins média, une seule fois. « Plus tard » laisse un bouton Télécharger dans Préférences › Son et voix › Média. Sous Linux, vérifiez aussi les paquets GStreamer.',
     'faq.media.link': 'Guide Linux →',
     'faq.os.q': 'Aurora fonctionne-t-il sur les grilles OpenSim ?',
     'faq.os.a': 'Oui : les grilles OpenSim et l’Hypergrid, avec un gestionnaire de grilles, et un avatar cuit par le viewer là où la grille ne le fait pas.',
