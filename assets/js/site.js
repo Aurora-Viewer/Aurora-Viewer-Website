@@ -1,5 +1,6 @@
-// Aurora Viewer website: language, latest release, news and the window tour.
-// Everything here is optional: without JavaScript the page shows the values written in index.html.
+// Aurora Viewer website: language, latest release, news, the window tour, the drop-down panels
+// and the download page's system picker.
+// Everything here is optional: without JavaScript the pages show the values written in their HTML.
 (() => {
   'use strict';
 
@@ -8,8 +9,8 @@
   // Same feed as the viewer's login screen (crates/aurora-viewer/src/links.rs, NEWS_FEED).
   const NEWS_FEED = `https://raw.githubusercontent.com/${REPO}/main/news/`;
   const RELEASE_TTL = 60 * 60 * 1000;
-  // A new key drops the answers browsers kept from before the symbols fix.
-  const RELEASE_KEY = 'aurora-release-3';
+  // A new key drops the answers browsers kept before the files' names and checksums were kept too.
+  const RELEASE_KEY = 'aurora-release-4';
   const NEWS_TTL = 30 * 60 * 1000;
   const NEWS_SHOWN = 3;
 
@@ -17,21 +18,13 @@
   const STR = {
     en: {
       title: 'Aurora Viewer | A modern Second Life viewer',
-      'dl.linux': 'Download for Linux',
-      'dl.linux-guide': 'Get it on Linux',
-      'dl.macos': 'Download for macOS',
-      'dl.macos-guide': 'Get it on macOS',
       mb: 'MB',
-      more: 'Read more',
+      copied: 'Copied to the clipboard',
     },
     fr: {
       title: 'Aurora Viewer | Un viewer Second Life moderne',
-      'dl.linux': 'Télécharger pour Linux',
-      'dl.linux-guide': 'Installer sur Linux',
-      'dl.macos': 'Télécharger pour macOS',
-      'dl.macos-guide': 'Installer sur macOS',
       mb: 'Mo',
-      more: 'En savoir plus',
+      copied: 'Copié dans le presse-papiers',
     },
   };
 
@@ -39,27 +32,106 @@
   const FR = {
     skip: 'Aller au contenu',
     'nav.features': 'Fonctionnalités',
-    'nav.performance': 'Performance',
-    'nav.yours': 'À votre façon',
     'nav.news': 'Actualités',
-    'nav.community': 'Communauté',
     'nav.download': 'Télécharger',
     'nav.label': 'Navigation principale',
     'lang.label': 'Langue',
     'gh.label': 'Aurora Viewer sur GitHub',
     'discord.label': 'Aurora Viewer sur Discord',
+    'menu.label': 'Communauté et aide',
+    'menu.discord': 'Discutez avec l’équipe et les testeurs',
+    'menu.feedback': 'Boîte à idées',
+    'menu.feedback.sub': 'Proposez des fonctionnalités et votez pour elles',
+    'menu.bug': 'Ouvrez un signalement sur GitHub',
+    'menu.gh': 'Le code source, les versions et le travail en cours',
+    'menu.faq': 'Aide et FAQ →',
+    'fab.label': 'Aide et suggestions',
+    'fab.title': 'Comment pouvons-nous vous aider ?',
+    'act.idea': 'Proposer une fonctionnalité',
+    'fab.discord': 'Demander sur Discord',
+    'fab.gh': 'Le code source sur GitHub',
+    'crumb.home': 'Accueil',
     'pill.before': 'La version',
     'pill.after': 'est sortie',
     'pill.notes': 'Nouveautés',
-    'hero.title': 'Second Life,<br><span class="glow-text">enfin fluide.</span>',
+    'hero.title': 'Second Life,<br>enfin fluide.',
     'hero.lead': 'Un viewer Second Life moderne, écrit en Rust. Un rendu Vulkan, une interface apaisée, et le monde que vous connaissez déjà.',
     'dl.windows': 'Télécharger pour Windows',
-    'dl.linux-guide': 'Installer sur Linux',
-    'dl.linux': 'Télécharger pour Linux',
-    'dl.macos-guide': 'Installer sur macOS',
-    'dl.macos': 'Télécharger pour macOS',
-    'dl.experimental': 'Expérimental',
+    'dl.others': 'Linux et macOS',
+    'hero.systems': 'Windows 10 / 11 · Linux x86-64 · macOS Apple Silicon',
     'meta.license': 'Libre et gratuit, GPLv3',
+    'dl.experimental': 'Expérimental',
+    'dl.title': 'Télécharger Aurora Viewer',
+    'dl.lead': 'Choisissez votre système : le téléchargement et les étapes d’installation suivent.',
+    'dl.os': 'Système d’exploitation',
+    'dl.detected': 'Détecté',
+    'dl.win.sub': 'Windows 10 / 11 · 64 bits',
+    'dl.lin.sub': 'x86-64 · archive .tar.gz',
+    'dl.mac.sub': 'Apple Silicon · macOS 13+',
+    'dl.sha': 'Somme de contrôle SHA-256',
+    'dl.files': 'Tous les fichiers de cette version',
+    'dl.steps': 'L’installation en trois étapes',
+    'dl.start': 'Lancez le viewer',
+    'dl.req': 'Configuration requise',
+    'dl.req.system': 'Système',
+    'dl.req.graphics': 'Graphismes',
+    'dl.req.cpu': 'Processeur',
+    'dl.req.desktop': 'Bureau',
+    'dl.req.mac': 'Mac',
+    'dl.updates': 'Mises à jour',
+    'dl.trouble': 'Un souci à l’installation ?',
+    'dl.trouble.text': 'Consultez les réponses aux questions fréquentes, ou dites-nous ce qui n’a pas marché.',
+    'dl.copy': 'Copier',
+    'dl.copied': 'Copié',
+    'dl.distro': 'Distribution',
+    'dl.win.title': 'Aurora Viewer pour Windows',
+    'dl.win.btn': 'Télécharger le .zip',
+    'dl.win.1.title': 'Téléchargez l’archive',
+    'dl.win.1.text': 'Cliquez sur <b>Télécharger le .zip</b> ci-dessus. Rien à installer en administrateur.',
+    'dl.win.2.title': 'Extrayez-la',
+    'dl.win.2.text': 'Clic droit sur le fichier › <b>Extraire tout…</b>, dans le dossier de votre choix.',
+    'dl.win.3.text': 'Double-cliquez sur <code>aurora-viewer.exe</code>.',
+    'dl.win.smart.title': 'Si Windows affiche « Windows a protégé votre ordinateur »',
+    'dl.win.smart.text': 'Cliquez sur <b>Informations complémentaires</b>, puis sur <b>Exécuter quand même</b>. Les versions ne sont pas encore signées : <a href="/code-signing/">lisez notre politique de signature du code</a>.',
+    'dl.win.req.system': 'Windows 10 ou 11, 64 bits',
+    'dl.win.req.graphics': 'Une carte avec un pilote Vulkan',
+    'dl.win.updates': 'Au lancement, Aurora propose la nouvelle version, la télécharge en arrière-plan, l’installe et relance votre session. Il vous dit d’abord si votre cache et vos réglages sont conservés.',
+    'dl.lin.title': 'Aurora Viewer pour Linux',
+    'dl.lin.btn': 'Télécharger le .tar.gz',
+    'dl.lin.guide': 'Le guide Linux complet',
+    'dl.lin.1.title': 'Installez les paquets du système',
+    'dl.lin.1.text': 'Vulkan, le son et le fenêtrage, plus GStreamer et les bibliothèques du navigateur pour les pages web et la vidéo.',
+    'dl.lin.1.driver': 'Plus le pilote Vulkan de votre carte s’il manque : <code>vulkan-radeon</code>, <code>vulkan-intel</code>, <code>mesa-vulkan-drivers</code> ou le pilote NVIDIA.',
+    'dl.lin.2.title': 'Vérifiez et extrayez',
+    'dl.lin.2.text': 'Placez l’archive et son fichier <code>.sha256</code> dans le même dossier, puis :',
+    'dl.lin.3.text': 'Pour l’ajouter au menu de votre bureau avec son icône, suivez <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">les étapes de l’entrée de bureau</a>.',
+    'dl.lin.req.cpu': 'PC 64 bits (x86-64)',
+    'dl.lin.req.graphics': 'Un pilote Vulkan',
+    'dl.lin.req.system': 'glibc 2.39 ou plus récente : Arch, CachyOS, Fedora 40+, Ubuntu 24.04+, Debian 13',
+    'dl.lin.req.desktop': 'X11 ou Wayland',
+    'dl.lin.updates': 'Le viewer vous prévient quand une nouvelle version sort. Extrayez la nouvelle archive comme à l’étape 2 : vos réglages, votre cache et vos journaux sont conservés.',
+    'dl.mac.title': 'Aurora Viewer pour macOS',
+    'dl.mac.btn': 'Télécharger le .dmg',
+    'dl.mac.guide': 'Le guide macOS complet',
+    'dl.mac.1.title': 'Ouvrez l’image disque',
+    'dl.mac.1.text': 'Double-cliquez sur le <code>.dmg</code> dans le Finder : une fenêtre montre Aurora Viewer à côté de votre dossier Applications.',
+    'dl.mac.2.title': 'Glissez-le dans Applications',
+    'dl.mac.2.text': 'Glissez <b>Aurora Viewer</b> sur <b>Applications</b>, puis éjectez l’image disque.',
+    'dl.mac.3.text': 'Ouvrez Aurora Viewer depuis Applications ou le Launchpad.',
+    'dl.mac.gk.title': 'Si macOS ne peut pas vérifier l’application',
+    'dl.mac.gk.text': 'Cliquez sur <b>Terminé</b>, ouvrez <b>Réglages Système › Confidentialité et sécurité</b>, faites défiler vers le bas et cliquez sur <b>Ouvrir quand même</b>. macOS retient ce choix. Ou, dans le Terminal :',
+    'dl.mac.req.mac': 'Apple Silicon (M1 ou plus récent). Les Mac Intel ne sont pas pris en charge.',
+    'dl.mac.req.system': 'macOS 13 Ventura ou plus récent',
+    'dl.mac.updates': 'Le viewer vous prévient quand une nouvelle version sort. Installez la nouvelle image disque comme à l’étape 2 : vos réglages, votre cache et vos journaux sont conservés.',
+    'dl.mac.new': 'macOS est pris en charge depuis peu',
+    'dl.mac.new.text': 'Dites-nous ce qui ne marche pas : chaque signalement aide.',
+    'dl.more': 'Autres options',
+    'dl.more.build': 'Compiler depuis les sources',
+    'dl.more.build.text': 'En Rust, sous Windows, Linux ou macOS.',
+    'dl.more.all': 'Toutes les versions',
+    'dl.more.all.text': 'Chaque version et ses notes, sur GitHub.',
+    'dl.more.uninstall.text': 'Retirer le viewer et ses fichiers.',
+    'dl.more.signing.text': 'Comment les versions sont construites et vérifiées.',
     'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
     'float.load': 'Chargement en parallèle',
     'float.load-sub': 'Textures et meshes décodés en arrière-plan',
@@ -259,6 +331,7 @@
     'road.updates.text': 'Aujourd’hui, le viewer indique la nouvelle version ; il l’installera pour vous, comme sous Windows.',
     'news.eyebrow': 'Actualités',
     'news.title': 'Les dernières nouvelles d’Aurora.',
+    'news.all': 'Toutes les notes de version',
     'open.eyebrow': 'Open source',
     'open.title': 'Construit au grand jour, avec ses résidents.',
     'open.gpl.title': 'Libre, sous GPLv3',
@@ -270,9 +343,19 @@
     'open.chip': 'Accès anticipé · 0.x',
     'open.status': 'Utilisable pour explorer, discuter et tester. Certaines fonctions attendent encore leur validation sur la grille principale.',
     'open.discord': 'Rejoindre le Discord',
-    'final.title': 'Entrez dans un <span class="glow-text">Second&nbsp;Life plus fluide.</span>',
+    'help.title': 'Un bug ? Une idée ?',
+    'help.bug.text': 'Ouvrez un signalement sur GitHub. Dans le viewer : <b>Signaler un bug</b>, dans la barre du haut, le menu Aide ou l’écran de connexion.',
+    'help.idea.text': 'Postez une idée dans la boîte à idées, et votez pour celles que vous voulez ensuite.',
+    'help.idea.btn': 'Ouvrir la boîte à idées',
+    'help.ask.title': 'Demandez à la communauté',
+    'help.ask.text': 'Questions, photos, tests en cours : retrouvez l’équipe et les testeurs sur Discord.',
+    'help.code.title': 'Suivez le code',
+    'help.code.text': 'Lisez le code, suivez le travail en cours et contribuez. Chaque version et ses notes s’y trouvent aussi.',
+    'help.code.btn': 'Ouvrir GitHub',
+    'final.title': 'Entrez dans un Second&nbsp;Life plus fluide.',
     'final.lead': 'Libre, gratuit, et prêt pour votre prochaine connexion.',
     'final.dl': 'Télécharger Aurora Viewer',
+    'final.gh': 'Voir sur GitHub',
     'foot.about': 'Un viewer Second Life moderne, écrit en Rust.',
     'foot.product': 'Produit',
     'foot.download': 'Télécharger',
@@ -285,10 +368,56 @@
     'foot.translate': 'Traduire',
     'foot.contribute': 'Contribuer',
     'foot.privacy': 'Confidentialité',
+    'foot.signing': 'Politique de signature du code',
     'foot.ai': 'Usage de l’IA',
-    'foot.community': 'Communauté',
+    'foot.faq': 'Aide et FAQ',
     'foot.copy': '© 2026 Contributeurs d’Aurora Viewer · GPLv3',
     'foot.trademark': 'Ce logiciel n’est ni fourni ni pris en charge par Linden Lab, l’éditeur de Second Life. Second Life est une marque de Linden Research, Inc.',
+    'sup.lead': 'Trouvez de l’aide, signalez un bug ou proposez la suite. Aurora est façonné par ses testeurs.',
+    'sup.bug.text': 'Quelque chose est cassé ou ne marche pas comme prévu ? Ouvrez un signalement sur GitHub avec le formulaire de bug. Il vous faut un compte GitHub gratuit.',
+    'sup.idea.text': 'Postez une idée dans la boîte à idées, et votez pour celles que vous voulez ensuite. Les idées que l’équipe retient passent sur GitHub.',
+    'sup.ask.text': 'Une question sur un réglage, une photo à partager, un test en cours : l’équipe et les testeurs sont sur Discord.',
+    'sup.before': 'Avant de signaler',
+    'sup.before.1.title': 'Vérifiez votre version',
+    'sup.before.1.a': 'La dernière est la',
+    'sup.before.1.b': 'Votre problème est peut-être déjà corrigé : <a href="/download/">téléchargez-la</a>.',
+    'sup.before.2.title': 'Cherchez dans les signalements existants',
+    'sup.before.2.text': 'Si quelqu’un l’a déjà signalé, ajoutez ce que vous avez vu à ce signalement.',
+    'sup.search.label': 'Chercher dans les signalements',
+    'sup.search.ph': 'par ex. voix, téléportation, écran noir',
+    'sup.search.btn': 'Chercher sur GitHub',
+    'sup.before.3.title': 'Dites ce que vous avez fait, et ce qui s’est passé',
+    'sup.before.3.text': 'Les étapes qui mènent au problème, ce que vous attendiez, et votre système : le formulaire demande chacun.',
+    'sup.inside': 'Depuis le viewer',
+    'sup.inside.1': '<b>Signaler un bug</b> se trouve dans la barre du haut, le menu Aide et sur l’écran de connexion. Il ouvre le formulaire dans votre navigateur.',
+    'sup.inside.2': '<b>Après un plantage</b>, la fenêtre de plantage propose d’envoyer un rapport en ticket GitHub à votre nom, une fois que vous avez dit ce que vous faisiez. Rien n’est envoyé tout seul.',
+    'sup.inside.3': 'Préférences › Confidentialité › Rapports de plantage : Demander, Toujours ou Jamais.',
+    'sup.faq': 'Questions fréquentes',
+    'sup.guides': 'Tous les guides sur GitHub →',
+    'faq.smart.q': 'Windows affiche « Windows a protégé votre ordinateur ».',
+    'faq.smart.a': 'Cliquez sur Informations complémentaires, puis sur Exécuter quand même. Les versions ne sont pas encore signées, donc Windows ne connaît pas l’éditeur.',
+    'faq.smart.link': 'Politique de signature du code →',
+    'faq.gk.q': 'macOS dit qu’il ne peut pas vérifier l’application.',
+    'faq.gk.a': 'Cliquez sur Terminé, ouvrez Réglages Système › Confidentialité et sécurité, faites défiler jusqu’au message sur Aurora Viewer et cliquez sur Ouvrir quand même. macOS retient ce choix.',
+    'faq.gk.link': 'Guide macOS →',
+    'faq.keep.q': 'Mes réglages sont-ils conservés lors d’une mise à jour ?',
+    'faq.keep.a': 'Sous Windows, la proposition de mise à jour vous dit, avant que vous acceptiez, si votre cache et vos réglages sont conservés. Sous Linux et macOS, ils ne sont pas dans le dossier du viewer : une nouvelle version les garde.',
+    'faq.media.q': 'Les pages web ou les vidéos restent vides.',
+    'faq.media.a': 'La première fois qu’ils sont nécessaires, le viewer demande avant de télécharger les plugins média, une seule fois. « Pas maintenant » laisse un bouton Télécharger dans Préférences › Son et voix › Média. Sous Linux, vérifiez aussi les paquets GStreamer.',
+    'faq.media.link': 'Guide Linux →',
+    'faq.os.q': 'Aurora fonctionne-t-il sur les grilles OpenSim ?',
+    'faq.os.a': 'Oui : les grilles OpenSim et l’Hypergrid, avec un gestionnaire de grilles, et un avatar cuit par le viewer là où la grille ne le fait pas.',
+    'faq.legacy.q': 'Puis-je garder l’interface que je connais ?',
+    'faq.legacy.a': 'Oui. Chaque fenêtre repensée garde sa version Legacy : Préférences › Aurora, un choix par fenêtre, ou tout d’un coup.',
+    'faq.remove.q': 'Comment désinstaller Aurora ?',
+    'faq.remove.a': 'Supprimez le dossier ou l’application du viewer, puis les dossiers de réglages et de cache si vous voulez aussi les effacer.',
+    'faq.remove.link': 'Guide de désinstallation →',
+    'sup.contrib': 'D’autres façons d’aider',
+    'sup.contrib.translate': 'Aidez à traduire Aurora dans votre langue.',
+    'sup.contrib.code': 'Contribuer au code',
+    'sup.contrib.code.text': 'Rust, wgpu et Vulkan, au grand jour.',
+    'sup.contrib.source': 'Libre, sous GPLv3.',
+    'sup.contrib.privacy': 'Ce que le viewer garde, et ce qu’il envoie.',
   };
 
   const store = {
@@ -320,7 +449,7 @@
 
   const english = new Map();
   $$('[data-i18n]').forEach((el) => english.set(el, el.innerHTML));
-  const ATTRS = [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt']];
+  const ATTRS = [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt'], ['data-i18n-placeholder', 'placeholder']];
   ATTRS.forEach(([marker, attr]) => $$(`[${marker}]`).forEach((el) => {
     el.setAttribute(`data-en-${attr}`, el.getAttribute(attr) || '');
   }));
@@ -376,7 +505,9 @@
       // Each release also carries crash symbols (…-windows-x64-symbols.zip) and checksums: never offer those.
       const a = viewer.assets.find((x) => re.test(x.name)
         && !/symbols|debug|\.(sha256|json|sig|asc)$/i.test(x.name));
-      return a ? { url: a.browser_download_url, size: a.size } : null;
+      if (!a) return null;
+      const sum = viewer.assets.find((x) => x.name === `${a.name}.sha256`);
+      return { url: a.browser_download_url, size: a.size, name: a.name, sum: sum ? sum.browser_download_url : '' };
     };
     return {
       version: viewer.tag_name.replace(/^v/, ''),
@@ -411,11 +542,19 @@
     renderRelease();
   }
 
+  const formatSize = (bytes) => `${new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(bytes / 1e6)} ${STR[lang].mb}`;
+
   function renderRelease() {
     $$('[data-release-date]').forEach((el) => {
       const iso = release ? release.date : el.dataset.date;
       el.textContent = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date(iso));
       el.dataset.date = iso;
+    });
+    // The sizes written in the page carry their byte count, so they follow the language offline too.
+    $$('[data-dl-size]').forEach((el) => {
+      const file = release && release[el.dataset.dlSize];
+      const bytes = file ? file.size : Number(el.dataset.bytes);
+      if (bytes) el.textContent = formatSize(bytes);
     });
     if (!release) return;
     $$('[data-version]').forEach((el) => { el.textContent = release.version; });
@@ -424,18 +563,13 @@
       const file = release[os];
       if (!file) return;
       $$(`[data-dl="${os}"]`).forEach((el) => { el.href = file.url; });
-      $$(`[data-dl-size="${os}"]`).forEach((el) => {
-        el.textContent = `· ${Math.round(file.size / 1e6)} ${STR[lang].mb}`;
+      $$(`[data-dl-sum="${os}"]`).forEach((el) => {
+        el.hidden = !file.sum;
+        if (file.sum) el.href = file.sum;
       });
-    });
-    // With a file to download, the install guide's label becomes "Download for…".
-    ['linux', 'macos'].forEach((os) => {
-      if (!release[os]) return;
-      $$(`[data-dl-label="${os}"]`).forEach((el) => {
-        el.setAttribute('data-i18n', `dl.${os}`);
-        english.set(el, STR.en[`dl.${os}`]);
-        el.innerHTML = STR[lang][`dl.${os}`];
-      });
+      $$(`[data-dl-name="${os}"]`).forEach((el) => { el.textContent = file.name; });
+      // The Linux archive unpacks into a folder of its own name.
+      $$(`[data-dl-stem="${os}"]`).forEach((el) => { el.textContent = file.name.replace(/\.(tar\.(gz|xz|zst)|zip|dmg)$/i, ''); });
     });
   }
 
@@ -505,30 +639,33 @@
   }
 
   function newsCard(item) {
-    const card = document.createElement(item.url ? 'a' : 'article');
-    card.className = 'card ncard';
-    if (item.url) card.href = item.url;
+    const row = document.createElement(item.url ? 'a' : 'article');
+    row.className = 'nrow';
+    if (item.url) row.href = item.url;
+    const time = document.createElement('time');
     if (item.date) {
-      const time = document.createElement('time');
       time.dateTime = item.date;
       time.textContent = new Intl.DateTimeFormat(lang, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${item.date}T00:00:00Z`));
-      card.append(time);
     }
+    const body = document.createElement('div');
+    body.className = 'nbody';
     const title = document.createElement('h3');
     title.textContent = item.title;
-    card.append(title);
+    body.append(title);
     item.paragraphs.forEach((text) => {
       const p = document.createElement('p');
       p.textContent = text;
-      card.append(p);
+      body.append(p);
     });
+    row.append(time, body);
     if (item.url) {
       const more = document.createElement('span');
       more.className = 'more';
-      more.textContent = `${STR[lang].more} →`;
-      card.append(more);
+      more.setAttribute('aria-hidden', 'true');
+      more.textContent = '→';
+      row.append(more);
     }
-    return card;
+    return row;
   }
 
   // ---- A closer look: the tabs advance on their own until the visitor picks one ----
@@ -609,6 +746,102 @@
   } else {
     observed.forEach((el) => el.classList.add('in-view'));
   }
+
+  // ---- Drop-down panels: Community and support in the header, and the floating help ----
+  // Escape, a click outside or tabbing away closes them.
+
+  const pops = $$('[data-pop]').map((button) => ({
+    button,
+    root: button.closest('.pop'),
+    panel: document.getElementById(button.getAttribute('aria-controls')),
+  })).filter((pop) => pop.root && pop.panel);
+
+  const setOpen = (pop, open) => {
+    pop.button.setAttribute('aria-expanded', String(open));
+    pop.panel.hidden = !open;
+  };
+
+  pops.forEach((pop) => {
+    pop.button.addEventListener('click', () => {
+      const open = pop.panel.hidden;
+      pops.forEach((other) => setOpen(other, false));
+      setOpen(pop, open);
+    });
+    pop.root.addEventListener('focusout', (event) => {
+      if (event.relatedTarget && !pop.root.contains(event.relatedTarget)) setOpen(pop, false);
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    pops.filter((pop) => !pop.panel.hidden).forEach((pop) => {
+      setOpen(pop, false);
+      pop.button.focus();
+    });
+  });
+  document.addEventListener('click', (event) => {
+    pops.forEach((pop) => {
+      if (!pop.panel.hidden && !pop.root.contains(event.target)) setOpen(pop, false);
+    });
+  });
+
+  // ---- Download page: one system at a time, the visitor's own first (or ?os=) ----
+
+  const osButtons = $$('[data-os]');
+  if (osButtons.length) {
+    const detect = () => {
+      const ua = `${(navigator.userAgentData && navigator.userAgentData.platform) || ''} ${navigator.platform || ''} ${navigator.userAgent}`;
+      // Phones, tablets (an iPad says Macintosh but has touch) and Chromebooks get no guess.
+      if (/android|iphone|ipad|ipod|cros/i.test(ua) || (/mac/i.test(ua) && navigator.maxTouchPoints > 1)) return '';
+      if (/win/i.test(ua)) return 'windows';
+      if (/mac/i.test(ua)) return 'macos';
+      if (/linux|x11/i.test(ua)) return 'linux';
+      return '';
+    };
+    const pick = (os) => {
+      osButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.os === os)));
+      $$('[data-os-panel]').forEach((panel) => panel.classList.toggle('is-on', panel.dataset.osPanel === os));
+    };
+    const detected = detect();
+    $$('[data-detected]').forEach((el) => { el.hidden = el.dataset.detected !== detected; });
+    const asked = new URLSearchParams(location.search).get('os');
+    pick(osButtons.some((b) => b.dataset.os === asked) ? asked : detected || 'windows');
+    osButtons.forEach((button) => button.addEventListener('click', () => {
+      pick(button.dataset.os);
+      const params = new URLSearchParams(location.search);
+      params.set('os', button.dataset.os);
+      history.replaceState(null, '', `?${params}${location.hash}`);
+    }));
+  }
+
+  $$('[data-distro]').forEach((button) => button.addEventListener('click', () => {
+    const box = button.closest('.code');
+    $$('[data-distro]', box).forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+    $$('[data-distro-panel]', box).forEach((panel) => panel.classList.toggle('is-on', panel.dataset.distroPanel === button.dataset.distro));
+  }));
+
+  const copyStatus = document.querySelector('[data-copy-status]');
+  $$('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
+    const box = button.closest('.code');
+    const pre = $$('pre', box).find((p) => p.offsetParent !== null) || box.querySelector('pre');
+    try {
+      await navigator.clipboard.writeText(pre.textContent.trim());
+    } catch (_) {
+      // No clipboard access: select the command so it can be copied by hand.
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      return;
+    }
+    button.classList.add('is-done');
+    if (copyStatus) copyStatus.textContent = STR[lang].copied;
+    clearTimeout(button.copyTimer);
+    button.copyTimer = setTimeout(() => {
+      button.classList.remove('is-done');
+      if (copyStatus) copyStatus.textContent = '';
+    }, 1600);
+  }));
 
   applyLanguage(pickLanguage());
   loadRelease();

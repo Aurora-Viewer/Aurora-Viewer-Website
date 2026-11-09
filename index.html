@@ -7,11 +7,11 @@
 <meta name="description" content="Second Life, smoother and more beautiful. Aurora is a free, open source viewer built in Rust with a Vulkan renderer, for Windows, Linux and macOS.">
 <meta name="theme-color" content="#070B1F">
 <link rel="canonical" href="https://aurora-viewer.org/">
-<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/img/icon-192.png" sizes="192x192" type="image/png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aurora Viewer">
 <meta property="og:title" content="Aurora Viewer | A modern Second Life viewer">
@@ -21,112 +21,82 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.remove('no-js');</script>
-<script src="assets/js/site.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<header class="nav">
+<header class="nav nav-over">
   <div class="wrap nav-in">
-    <a class="brand" href="#top">
-      <img src="assets/img/logo.svg" width="34" height="34" alt="">
+    <a class="brand" href="/">
+      <img src="/assets/img/logo.svg" width="28" height="28" alt="">
       <span>Aurora Viewer</span>
     </a>
     <nav class="links" aria-label="Main" data-i18n-aria="nav.label">
       <a href="#features" data-i18n="nav.features">Features</a>
       <a href="#photo" data-i18n="nav.photo">Photo</a>
       <a href="#create" data-i18n="nav.create">Creators</a>
-      <a href="#performance" data-i18n="nav.performance">Performance</a>
-      <a href="#yours" data-i18n="nav.yours">Your way</a>
       <a href="#news" data-i18n="nav.news">News</a>
-      <a href="#community" data-i18n="nav.community">Community</a>
     </nav>
     <div class="nav-end">
       <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.label">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="fr" aria-pressed="false">FR</button>
       </div>
-      <a class="btn btn-ghost btn-sm gh" href="https://discord.gg/TK4nbMGmKt" aria-label="Aurora Viewer on Discord" data-i18n-aria="discord.label">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/></svg>
-      </a>
-      <a class="btn btn-ghost btn-sm gh" href="https://github.com/Aurora-Viewer/Aurora-Viewer" aria-label="Aurora Viewer on GitHub" data-i18n-aria="gh.label">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
-      </a>
-      <a class="btn btn-primary btn-sm" href="#download" data-i18n="nav.download">Download</a>
+      <a class="btn btn-line btn-sm social" href="https://discord.gg/TK4nbMGmKt" aria-label="Aurora Viewer on Discord" data-i18n-aria="discord.label"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span class="social-lbl">Discord</span></a>
+      <a class="btn btn-line btn-sm social" href="https://github.com/Aurora-Viewer/Aurora-Viewer" aria-label="Aurora Viewer on GitHub" data-i18n-aria="gh.label"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="social-lbl">GitHub</span></a>
+      <div class="pop pop-menu">
+        <button type="button" class="btn btn-line btn-sm" aria-expanded="false" aria-controls="menu-community" data-pop><span data-i18n="menu.label">Community and support</span><svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></button>
+        <div class="pop-panel" id="menu-community" hidden>
+          <a class="pop-item" href="https://discord.gg/TK4nbMGmKt"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span><b>Discord</b><span data-i18n="menu.discord">Talk with the team and the testers</span></span></a>
+          <a class="pop-item" href="https://feedback.aurora-viewer.org"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg><span><b data-i18n="menu.feedback">Feedback board</b><span data-i18n="menu.feedback.sub">Suggest and vote for features</span></span></a>
+          <a class="pop-item" href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M12 6V4M4 13h4M16 13h4M5 8l3 2M19 8l-3 2M5 19l3-2M19 19l-3-2"/></svg><span><b data-i18n="foot.bug">Report a bug</b><span data-i18n="menu.bug">Open a report on GitHub</span></span></a>
+          <a class="pop-item" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span><b>GitHub</b><span data-i18n="menu.gh">Source code, releases and work in progress</span></span></a>
+          <a class="pop-foot" href="/support/" data-i18n="menu.faq">Help and FAQ →</a>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-sm" href="/download/" data-i18n="nav.download">Download</a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-<section id="top" class="top">
-  <div class="sky" aria-hidden="true">
-    <div class="stars"></div>
-    <div class="ribbon r4"></div>
-    <div class="ribbon r1"></div>
-    <div class="ribbon r2"></div>
-    <div class="ribbon r3"></div>
-    <div class="rays"></div>
-  </div>
-
-  <div class="wrap hero">
-    <a class="pill rise" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-release-link>
-      <span class="dot"></span>
-      <span><span data-i18n="pill.before">Version</span> <span data-version>0.9.4</span> <span data-i18n="pill.after">is out</span></span>
-      <span class="tag"><span data-i18n="pill.notes">Release notes</span>
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>
-      </span>
-    </a>
-
-    <h1 class="display h1 rise d1" data-i18n="hero.title">Second Life,<br><span class="glow-text">beautifully fast.</span></h1>
-    <p class="lead rise d2" data-i18n="hero.lead">A modern Second Life viewer, written in Rust. A Vulkan renderer, a calm interface, and the world you already know.</p>
-
-    <div id="download" class="cta rise d3">
-      <a class="btn btn-primary" data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9l0 .1"/><path d="M12 5l0 14"/><path d="M4 12l16 0"/></svg>
-        <span class="lbl"><span data-i18n="dl.windows">Download for Windows</span> <span class="size" data-dl-size="windows"></span></span>
-      </a>
-      <a class="btn btn-glass" data-dl="linux" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l3 3l-3 3"/><path d="M13 15l3 0"/><path d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12"/></svg>
-        <span class="lbl"><span data-i18n="dl.linux-guide" data-dl-label="linux">Get it on Linux</span> <span class="size" data-dl-size="linux"></span></span>
-      </a>
-      <a class="btn btn-glass" data-dl="macos" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/MACOS.md">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19l18 0"/><path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8"/></svg>
-        <span class="lbl"><span data-i18n="dl.macos-guide" data-dl-label="macos">Get it on macOS</span> <span class="size" data-dl-size="macos"></span></span>
-        <span class="exp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg><span data-i18n="dl.experimental">Experimental</span></span>
-      </a>
-    </div>
-    <p class="meta rise d4">v<span data-version>0.9.4</span> · <span data-release-date data-date="2026-11-08T21:39:47Z">November 8, 2026</span> · <span data-i18n="meta.license">Free and open source, GPLv3</span></p>
-
-    <div class="shot rise d5">
-      <div class="shot-glow"></div>
-      <div class="frame">
-        <img src="assets/img/world-1280.webp" srcset="assets/img/world-1280.webp 1280w, assets/img/world-2560.webp 2560w" sizes="(max-width: 1224px) 100vw, 1160px" width="2552" height="1372" fetchpriority="high"
-          alt="Aurora Viewer in a Japanese garden, with the People, Controls, Places, Inventory, Performance and Conversations windows open" data-i18n-alt="alt.world">
+<section id="top" class="hero">
+  <img class="hero-bg" src="/assets/img/world-1280.webp" srcset="/assets/img/world-1280.webp 1280w, /assets/img/world-2560.webp 2560w" sizes="100vw" width="2552" height="1372" fetchpriority="high"
+    alt="Aurora Viewer in a Japanese garden, with the People, Controls, Places, Inventory, Performance and Conversations windows open" data-i18n-alt="alt.world">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="hero-tag">
+        <span class="vtag"><span data-i18n="pill.before">Version</span> <span data-version>0.9.4</span> <span data-i18n="pill.after">is out</span></span>
+        <span data-release-date data-date="2026-11-08T21:39:47Z">November 8, 2026</span>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-release-link><span data-i18n="pill.notes">Release notes</span> →</a>
+      </p>
+      <h1 class="display h1" data-i18n="hero.title">Second Life,<br>beautifully fast.</h1>
+      <p class="lead" data-i18n="hero.lead">A modern Second Life viewer, written in Rust. A Vulkan renderer, a calm interface, and the world you already know.</p>
+      <div id="download" class="cta">
+        <a class="btn btn-primary btn-lg" href="/download/?os=windows"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5l5 -5"/><path d="M5 21h14"/></svg><span data-i18n="dl.windows">Download for Windows</span></a>
+        <a class="btn btn-line btn-lg" href="/download/" data-i18n="dl.others">Linux and macOS</a>
       </div>
-      <div class="float f1">
-        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span>
-        <div><b data-i18n="float.load">Parallel loading</b><span data-i18n="float.load-sub">Textures and meshes decoded in the background</span></div>
-      </div>
-      <div class="float f2">
-        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6"/></svg></span>
-        <div><b data-i18n="float.photo">Photos up to 8K</b><span data-i18n="float.photo-sub">Filters, effects, isolation</span></div>
-      </div>
-      <div class="fade"></div>
+      <p class="meta"><span data-i18n="hero.systems">Windows 10 / 11 · Linux x86-64 · macOS Apple Silicon</span> · <span data-i18n="meta.license">Free and open source, GPLv3</span></p>
+      <ul class="hero-points">
+        <li><span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span><span><b data-i18n="float.load">Parallel loading</b><span data-i18n="float.load-sub">Textures and meshes decoded in the background</span></span></li>
+        <li><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6"/></svg></span><span><b data-i18n="float.photo">Photos up to 8K</b><span data-i18n="float.photo-sub">Filters, effects, isolation</span></span></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<section class="wrap" aria-label="At a glance" data-i18n-aria="stats.label">
-  <div class="stats">
-    <div class="stat"><div class="n" data-i18n="stats.cores">Multi-core</div><p data-i18n="stats.threads">the work shared across your processor while the graphics card draws</p></div>
-    <div class="stat"><div class="n">≈ ½</div><p data-i18n="stats.vram">the video memory for the same textures</p></div>
-    <div class="stat"><div class="n" data-i18n="stats.instant">Instant</div><p data-i18n="stats.tp">teleports within a region, with no loading screen</p></div>
-    <div class="stat"><div class="n">Vulkan</div><p data-i18n="stats.vulkan">a renderer built for today's graphics cards</p></div>
+  <div class="wrap">
+    <div class="figures" role="region" aria-label="At a glance" data-i18n-aria="stats.label">
+      <div class="stat"><div class="n" data-i18n="stats.cores">Multi-core</div><p data-i18n="stats.threads">the work shared across your processor while the graphics card draws</p></div>
+      <div class="stat"><div class="n">≈ ½</div><p data-i18n="stats.vram">the video memory for the same textures</p></div>
+      <div class="stat"><div class="n" data-i18n="stats.instant">Instant</div><p data-i18n="stats.tp">teleports within a region, with no loading screen</p></div>
+      <div class="stat"><div class="n">Vulkan</div><p data-i18n="stats.vulkan">a renderer built for today's graphics cards</p></div>
+    </div>
   </div>
 </section>
 
@@ -145,14 +115,20 @@
 
 <section id="performance" class="sec">
   <div class="wrap">
-    <div class="split">
+    <div class="split perf">
       <div>
         <p class="eyebrow" data-i18n="perf.eyebrow">Performance</p>
         <h2 class="display h2" data-i18n="perf.title">Built for every core of your machine.</h2>
-        <p class="lead" style="margin-top: 22px" data-i18n="perf.lead">Aurora shares the work across your processor and hands the heavy lifting to your graphics card. While one frame is drawn, the next one is already being prepared.</p>
+        <p class="lead" data-i18n="perf.lead">Aurora shares the work across your processor and hands the heavy lifting to your graphics card. While one frame is drawn, the next one is already being prepared.</p>
+        <div class="rows">
+          <div><h3 data-i18n="perf.m1.title">Arrive without a freeze</h3><p data-i18n="perf.m1.text">Textures and meshes decode in the background, straight into GPU memory. What you look at downloads first.</p></div>
+          <div><h3 data-i18n="perf.m2.title">Places you know, at once</h3><p data-i18n="perf.m2.text">Textures are cached on disk ready for the graphics card, in about half the video memory.</p></div>
+          <div><h3 data-i18n="perf.m3.title">It holds on</h3><p data-i18n="perf.m3.text">A network blip no longer logs you out: Aurora reconnects you right where you were.</p></div>
+          <div><h3 data-i18n="perf.m4.title">Made for today's hardware</h3><p data-i18n="perf.m4.text">Vulkan, Metal on macOS, the dedicated graphics card on a laptop, and AMD FSR 3.1 upscaling on every brand of card.</p></div>
+        </div>
       </div>
       <div class="card lanes">
-        <p class="note" data-i18n="perf.lanes">Who does what, side by side</p>
+        <p class="lanes-label" data-i18n="perf.lanes">Who does what, side by side</p>
         <dl>
           <div><dt>main</dt><dd><b data-i18n="perf.l1.title">The world and the interface</b><span data-i18n="perf.l1.text">Prepares the next frame</span></dd></div>
           <div><dt>render</dt><dd><b data-i18n="perf.l2.title">Drawing</b><span data-i18n="perf.l2.text">Draws the current frame, with two helpers</span></dd></div>
@@ -164,28 +140,6 @@
       </div>
     </div>
 
-    <div class="minis">
-      <div class="card mini">
-        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7c3 -2 6 -2 9 0s6 2 9 0"/><path d="M3 17c3 -2 6 -2 9 0s6 2 9 0"/><path d="M3 12c3 -2 6 -2 9 0s6 2 9 0"/></svg></span>
-        <h3 data-i18n="perf.m1.title">Arrive without a freeze</h3>
-        <p data-i18n="perf.m1.text">Textures and meshes decode in the background, straight into GPU memory. What you look at downloads first.</p>
-      </div>
-      <div class="card mini">
-        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/><path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1"/><path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1"/></svg></span>
-        <h3 data-i18n="perf.m2.title">Places you know, at once</h3>
-        <p data-i18n="perf.m2.text">Textures are cached on disk ready for the graphics card, in about half the video memory.</p>
-      </div>
-      <div class="card mini">
-        <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg></span>
-        <h3 data-i18n="perf.m3.title">It holds on</h3>
-        <p data-i18n="perf.m3.text">A network blip no longer logs you out: Aurora reconnects you right where you were.</p>
-      </div>
-      <div class="card mini">
-        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12h-12z"/><path d="M9 9h6v6h-6z"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg></span>
-        <h3 data-i18n="perf.m4.title">Made for today's hardware</h3>
-        <p data-i18n="perf.m4.text">Vulkan, Metal on macOS, the dedicated graphics card on a laptop, and AMD FSR 3.1 upscaling on every brand of card.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -193,7 +147,7 @@
   <div class="wrap">
     <p class="eyebrow" data-i18n="feat.eyebrow">Features</p>
     <h2 class="display h2" data-i18n="feat.title">Everything you know, rebuilt for today.</h2>
-    <div class="feat">
+    <div class="feat feat-3">
       <article class="card fcard">
         <span class="ic-lg"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span>
         <h3 data-i18n="feat.fast.title">Fast, and smooth</h3>
@@ -289,12 +243,12 @@
 
     <div class="gallery">
       <figure>
-        <div class="frame"><img src="assets/img/build-land-1280.webp" srcset="assets/img/build-land-1280.webp 1280w, assets/img/build-land-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2558" height="1371" loading="lazy"
+        <div class="frame"><img src="/assets/img/build-land-1280.webp" srcset="/assets/img/build-land-1280.webp 1280w, /assets/img/build-land-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2558" height="1371" loading="lazy"
           alt="Building in Aurora: the Transform panel next to a selected box, with the About Land, Region / Estate, profile and voice windows" data-i18n-alt="alt.build"></div>
         <figcaption data-i18n="gal.build"><b>Build and run your land.</b> Precise transforms, About Land, a complete Region / Estate window and rich profiles.</figcaption>
       </figure>
       <figure>
-        <div class="frame"><img src="assets/img/login-1280.webp" srcset="assets/img/login-1280.webp 1280w, assets/img/login-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2558" height="1375" loading="lazy"
+        <div class="frame"><img src="/assets/img/login-1280.webp" srcset="/assets/img/login-1280.webp 1280w, /assets/img/login-2560.webp 2560w" sizes="(max-width: 980px) 100vw, 590px" width="2558" height="1375" loading="lazy"
           alt="The Aurora login screen under an aurora, with two avatar accounts side by side and the news" data-i18n-alt="alt.login"></div>
         <figcaption data-i18n="gal.login"><b>A new login.</b> Several avatars side by side, with your last place and the latest news.</figcaption>
       </figure>
@@ -314,7 +268,7 @@
 
     <!-- The viewfinder as captured; .vf-lock sits on its green AF point (in % of the picture) and pulses like a focus lock. -->
     <div class="vf" data-observe>
-      <img class="vf-photo" src="assets/img/viewfinder-1280.webp" srcset="assets/img/viewfinder-1280.webp 1280w, assets/img/viewfinder-2560.webp 2560w" sizes="(max-width: 1224px) 100vw, 1136px" width="2558" height="1365" loading="lazy"
+      <img class="vf-photo" src="/assets/img/viewfinder-1280.webp" srcset="/assets/img/viewfinder-1280.webp 1280w, /assets/img/viewfinder-2560.webp 2560w" sizes="(max-width: 1224px) 100vw, 1136px" width="2558" height="1365" loading="lazy"
         alt="The Aurora viewfinder: rule of thirds, the autofocus point locked on an avatar's face, the camera pad, the focal ring and the exposure readouts" data-i18n-alt="alt.photo">
       <span class="vf-lock" style="left: 43.05%; top: 30.75%; width: 12.8%; height: 29.3%" aria-hidden="true"></span>
     </div>
@@ -371,7 +325,7 @@
     </div>
 
     <figure class="looks">
-      <div class="frame"><img src="assets/img/photo-looks.webp" width="1600" height="900" loading="lazy"
+      <div class="frame"><img src="/assets/img/photo-looks.webp" width="1600" height="900" loading="lazy"
         alt="The photo mode's filter panel: three effects stacked (silver black and white, old lens, glitch), the glitch's sliders, and the Aurora tab with its sections" data-i18n-alt="alt.looks"></div>
       <figcaption class="cap" data-i18n="photo.looks.cap">Three effects stacked, live in the viewfinder, each with its own sliders.</figcaption>
     </figure>
@@ -384,11 +338,10 @@
       <div>
         <p class="eyebrow"><span data-i18n="sky.eyebrow">Night sky</span></p>
         <h2 class="display h2" data-i18n="sky.title">The real stars, right above you.</h2>
-        <p class="lead" style="margin-top: 22px" data-i18n="sky.lead">The 8,920 stars you can see with the naked eye, in their true places and colours, and the Milky Way. The sky turns with the region’s day and follows today’s season. Choose where on Earth you look up from, from Paris to Sydney, and how bright the stars shine.</p>
+        <p class="lead" data-i18n="sky.lead">The 8,920 stars you can see with the naked eye, in their true places and colours, and the Milky Way. The sky turns with the region’s day and follows today’s season. Choose where on Earth you look up from, from Paris to Sydney, and how bright the stars shine.</p>
       </div>
       <div class="side-shot">
-        <div class="shot-glow"></div>
-        <div class="frame"><img src="assets/img/win-night-sky.webp" width="1116" height="717" loading="lazy"
+        <div class="frame"><img src="/assets/img/win-night-sky.webp" width="1116" height="717" loading="lazy"
           alt="The Sky and environment tab of Preferences: the night sky's place, its latitude and the stars' brightness" data-i18n-alt="alt.sky"></div>
         <p class="cap" data-i18n="sky.cap">Preferences › Graphics › Sky and environment, also in Personal Lighting. The Legacy Viewer’s random stars stay one click away.</p>
       </div>
@@ -455,11 +408,10 @@
       <div>
         <p class="eyebrow" data-i18n="yours.eyebrow">Your way</p>
         <h2 class="display h2" data-i18n="yours.title">New interface, or the one you know. Window by window.</h2>
-        <p class="lead" style="margin-top: 22px" data-i18n="yours.lead">Prefer the layout you know? Every redesigned window keeps its Legacy version one click away.</p>
+        <p class="lead" data-i18n="yours.lead">Prefer the layout you know? Every redesigned window keeps its Legacy version one click away.</p>
       </div>
       <div class="side-shot">
-        <div class="shot-glow"></div>
-        <div class="frame"><img src="assets/img/win-preferences.webp" width="1116" height="717" loading="lazy"
+        <div class="frame"><img src="/assets/img/win-preferences.webp" width="1116" height="717" loading="lazy"
           alt="The Aurora page of Preferences, with an Aurora or Legacy choice for each redesigned window" data-i18n-alt="alt.prefs"></div>
         <p class="cap" data-i18n="yours.cap">Preferences › Aurora: one choice per window, or all at once.</p>
       </div>
@@ -501,27 +453,27 @@
       <div class="tour-stage">
         <div class="tour-bg" aria-hidden="true"></div>
         <div class="tour-panel is-on" role="tabpanel" id="tp-conv" aria-labelledby="tt-conv">
-          <img src="assets/img/win-conversations.webp" width="765" height="476" loading="lazy" alt="The Conversations window: a private chat with bubbles and a teleport offer as a card" data-i18n-alt="alt.conv">
+          <img src="/assets/img/win-conversations.webp" width="765" height="476" loading="lazy" alt="The Conversations window: a private chat with bubbles and a teleport offer as a card" data-i18n-alt="alt.conv">
           <p data-i18n="tour.conv.text">Conversations like a messenger: bubbles, pictures, and teleport offers or gifts right in the thread.</p>
         </div>
         <div class="tour-panel" role="tabpanel" id="tp-notif" aria-labelledby="tt-notif" hidden>
-          <img src="assets/img/win-notification-center.webp" width="408" height="388" loading="lazy" alt="The notification center unrolled from the bell, with a teleport offer and a simulator notice" data-i18n-alt="alt.notif">
+          <img src="/assets/img/win-notification-center.webp" width="408" height="388" loading="lazy" alt="The notification center unrolled from the bell, with a teleport offer and a simulator notice" data-i18n-alt="alt.notif">
           <p data-i18n="tour.notif.text">A notification center that unrolls from the bell, with the history of everything you missed.</p>
         </div>
         <div class="tour-panel" role="tabpanel" id="tp-inv" aria-labelledby="tt-inv" hidden>
-          <img src="assets/img/win-inventory.webp" width="1238" height="689" loading="lazy" alt="The inventory widened into an explorer, with folders, item rights and a detail pane" data-i18n-alt="alt.inv">
+          <img src="/assets/img/win-inventory.webp" width="1238" height="689" loading="lazy" alt="The inventory widened into an explorer, with folders, item rights and a detail pane" data-i18n-alt="alt.inv">
           <p data-i18n="tour.inv.text">An inventory that widens into an explorer: folders, details, filters and each item's rights at a glance.</p>
         </div>
         <div class="tour-panel" role="tabpanel" id="tp-places" aria-labelledby="tt-places" hidden>
-          <img src="assets/img/win-places.webp" width="1125" height="626" loading="lazy" alt="The Places window: landmarks and visited places in one list, with a preview of the selected place" data-i18n-alt="alt.places">
+          <img src="/assets/img/win-places.webp" width="1125" height="626" loading="lazy" alt="The Places window: landmarks and visited places in one list, with a preview of the selected place" data-i18n-alt="alt.places">
           <p data-i18n="tour.places.text">Favourites, landmarks and history in one list, with a preview of each place.</p>
         </div>
         <div class="tour-panel" role="tabpanel" id="tp-search" aria-labelledby="tt-search" hidden>
-          <img src="assets/img/win-search.webp" width="1037" height="679" loading="lazy" alt="The Search window: one field, type chips, rating filters and the details beside the results" data-i18n-alt="alt.search">
+          <img src="/assets/img/win-search.webp" width="1037" height="679" loading="lazy" alt="The Search window: one field, type chips, rating filters and the details beside the results" data-i18n-alt="alt.search">
           <p data-i18n="tour.search.text">One search for residents, places, events, groups and classifieds, with the details beside the results.</p>
         </div>
         <div class="tour-panel" role="tabpanel" id="tp-monitor" aria-labelledby="tt-monitor" hidden>
-          <img src="assets/img/win-performance.webp" width="1179" height="756" loading="lazy" alt="The resource monitor: processor, graphics card, memory, network and disk, with the frame time split by task" data-i18n-alt="alt.monitor">
+          <img src="/assets/img/win-performance.webp" width="1179" height="756" loading="lazy" alt="The resource monitor: processor, graphics card, memory, network and disk, with the frame time split by task" data-i18n-alt="alt.monitor">
           <p data-i18n="tour.monitor.text">A resource monitor that shows where every millisecond, megabyte and kilobit goes.</p>
         </div>
       </div>
@@ -543,12 +495,17 @@
 
 <section id="news" class="sec">
   <div class="wrap">
-    <p class="eyebrow" data-i18n="news.eyebrow">News</p>
-    <h2 class="display h2" data-i18n="news.title">The latest from Aurora.</h2>
-    <div class="grid3" data-news>
-      <a class="card ncard" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/tag/v0.9.4"><time datetime="2026-11-08">November 8, 2026</time><h3>Aurora 0.9.4: Debug settings, and more of the Legacy Viewer's options</h3><p>The toolbar's Debug settings button, or Ctrl+Alt+Shift+S, opens the Debug settings window: every setting by name, with a search, a star on the ones you changed and Reset to default. Preferences › Build sets what a new prim starts as: colour, transparency, glow, fullbright, physical, temporary or phantom. Preferences › Graphics gets a progressive draw distance (off by default), the Trees detail and Particles from worn objects, and Preferences › Protections can hide objects with a huge surface. Your cache and settings are kept.</p><span class="more">Read more →</span></a>
-      <article class="card ncard"><time datetime="2026-11-08">November 8, 2026</time><h3>Neighbouring regions, objects that stay in view, calls that hold</h3><p>Aurora now asks the region for your own draw distance, so the neighbouring regions appear at 256 m and beyond, as in the Legacy Viewer. Objects in plain view no longer vanish at some camera angles, and the world comes back by itself when the video memory was full at login. Media screens in busy regions load and follow their remotes, and textures left white come back without a relog. Private calls stay connected across teleports, and parcel music no longer cuts out while you cam around.</p></article>
-      <article class="card ncard"><time datetime="2026-11-08">November 8, 2026</time><h3>Chat, camera, avatars and fixes</h3><p>Camera smoothing goes up to 300 without jumps, and Preferences › Chat sets how many lines show above the chat bar. Ctrl+Tab cycles through the conversations, the Japanese IME shows the active conversion segment, and script text boxes take several lines. About Land edits stick, the AO no longer leaves a sit playing after a teleport, and the RLVa tools get an Exceptions tab. Thanks to AiAiCaptainn, anne-skydancer, circuskid, ClifHofmann, emmelinedevere, Gaalrauch, iGao, KanikaBreed, Marakiinfinity, MilkIsPrettyGood, Nowalski, Odessa-Draekavik and RheaMercury.</p></article>
+    <div class="sec-top">
+      <div>
+        <p class="eyebrow" data-i18n="news.eyebrow">News</p>
+        <h2 class="display h2" data-i18n="news.title">The latest from Aurora.</h2>
+      </div>
+      <a class="btn btn-line" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases" data-i18n="news.all">All release notes</a>
+    </div>
+    <div class="news" data-news>
+      <a class="nrow" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/tag/v0.9.4"><time datetime="2026-11-08">November 8, 2026</time><div class="nbody"><h3>Aurora 0.9.4: Debug settings, and more of the Legacy Viewer's options</h3><p>The toolbar's Debug settings button, or Ctrl+Alt+Shift+S, opens the Debug settings window: every setting by name, with a search, a star on the ones you changed and Reset to default. Preferences › Build sets what a new prim starts as: colour, transparency, glow, fullbright, physical, temporary or phantom. Preferences › Graphics gets a progressive draw distance (off by default), the Trees detail and Particles from worn objects, and Preferences › Protections can hide objects with a huge surface. Your cache and settings are kept.</p></div><span class="more" aria-hidden="true">→</span></a>
+      <article class="nrow"><time datetime="2026-11-08">November 8, 2026</time><div class="nbody"><h3>Neighbouring regions, objects that stay in view, calls that hold</h3><p>Aurora now asks the region for your own draw distance, so the neighbouring regions appear at 256 m and beyond, as in the Legacy Viewer. Objects in plain view no longer vanish at some camera angles, and the world comes back by itself when the video memory was full at login. Media screens in busy regions load and follow their remotes, and textures left white come back without a relog. Private calls stay connected across teleports, and parcel music no longer cuts out while you cam around.</p></div></article>
+      <article class="nrow"><time datetime="2026-11-08">November 8, 2026</time><div class="nbody"><h3>Chat, camera, avatars and fixes</h3><p>Camera smoothing goes up to 300 without jumps, and Preferences › Chat sets how many lines show above the chat bar. Ctrl+Tab cycles through the conversations, the Japanese IME shows the active conversion segment, and script text boxes take several lines. About Land edits stick, the AO no longer leaves a sit playing after a teleport, and the RLVa tools get an Exceptions tab. Thanks to AiAiCaptainn, anne-skydancer, circuskid, ClifHofmann, emmelinedevere, Gaalrauch, iGao, KanikaBreed, Marakiinfinity, MilkIsPrettyGood, Nowalski, Odessa-Draekavik and RheaMercury.</p></div></article>
     </div>
   </div>
 </section>
@@ -577,43 +534,58 @@
     <div class="card status">
       <span class="chip violet" data-i18n="open.chip">Early access · 0.x</span>
       <p data-i18n="open.status">Usable for exploring, chatting and testing. Some features still await validation on the main grid.</p>
-      <a class="btn btn-glass btn-sm" href="https://discord.gg/TK4nbMGmKt">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"/><path d="M7 16.5c3.5 1 6.5 1 10 0"/></svg>
-        <span data-i18n="open.discord">Join the Discord</span>
-      </a>
-      <a class="btn btn-glass btn-sm" href="https://github.com/Aurora-Viewer/Aurora-Viewer">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>
-        GitHub
-      </a>
+      <a class="btn btn-line btn-sm" href="https://discord.gg/TK4nbMGmKt"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span data-i18n="open.discord">Join the Discord</span></a>
+      <a class="btn btn-line btn-sm" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="help" class="sec">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="eyebrow" data-i18n="menu.label">Community and support</p>
+        <h2 class="display h2" data-i18n="help.title">Found a bug? Have an idea?</h2>
+      </div>
+      <a class="arrow-link" href="/support/" data-i18n="menu.faq">Help and FAQ →</a>
+    </div>
+    <div class="ruled ruled-4">
+      <div class="route">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M12 6V4M4 13h4M16 13h4M5 8l3 2M19 8l-3 2M5 19l3-2M19 19l-3-2"/></svg>
+        <h3 data-i18n="foot.bug">Report a bug</h3>
+        <p data-i18n="help.bug.text">Open a report on GitHub. In the viewer: <b>Report a bug</b>, in the top bar, the Help menu or the login screen.</p>
+        <a class="btn btn-primary" href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose" data-i18n="foot.bug">Report a bug</a>
+      </div>
+      <div class="route">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg>
+        <h3 data-i18n="act.idea">Suggest a feature</h3>
+        <p data-i18n="help.idea.text">Post an idea on the feedback board, and vote for the ones you want next.</p>
+        <a class="btn btn-line" href="https://feedback.aurora-viewer.org" data-i18n="help.idea.btn">Open the feedback board</a>
+      </div>
+      <div class="route">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        <h3 data-i18n="help.ask.title">Ask the community</h3>
+        <p data-i18n="help.ask.text">Questions, photos, tests in progress: meet the team and the testers on Discord.</p>
+        <a class="btn btn-line" href="https://discord.gg/TK4nbMGmKt" data-i18n="open.discord">Join the Discord</a>
+      </div>
+      <div class="route">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <h3 data-i18n="help.code.title">Follow the code</h3>
+        <p data-i18n="help.code.text">Read the code, follow the work in progress and contribute. Every release and its notes are there too.</p>
+        <a class="btn btn-line" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="help.code.btn">Open GitHub</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="final">
-  <div class="sky" aria-hidden="true">
-    <div class="stars"></div>
-    <div class="ribbon r1"></div>
-    <div class="ribbon r2"></div>
-    <div class="ribbon r3"></div>
-    <div class="rays"></div>
-  </div>
-  <svg class="hills" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path fill="#0A0E24" d="M0 120 C 180 70 320 90 480 104 C 640 118 760 60 940 72 C 1110 84 1260 120 1440 96 L 1440 180 L 0 180 Z"/><path fill="#050816" d="M0 150 C 220 118 400 140 620 132 C 820 124 980 150 1180 140 C 1300 134 1380 138 1440 142 L 1440 180 L 0 180 Z"/></svg>
+  <img class="final-bg" src="/assets/img/world-1280.webp" srcset="/assets/img/world-1280.webp 1280w, /assets/img/world-2560.webp 2560w" sizes="100vw" width="2552" height="1372" loading="lazy" alt="">
   <div class="wrap">
-    <img class="wolf" src="assets/img/logo.svg" width="112" height="112" alt="">
-    <h2 class="display h2" data-i18n="final.title">Step into a smoother <span class="glow-text">Second&nbsp;Life.</span></h2>
+    <h2 class="display h2" data-i18n="final.title">Step into a smoother Second&nbsp;Life.</h2>
     <p class="lead" data-i18n="final.lead">Free, open source, and ready for your next login.</p>
     <div class="cta">
-      <a class="btn btn-primary" data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest">
-        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg>
-        <span data-i18n="final.dl">Download Aurora Viewer</span>
-      </a>
-      <a class="btn btn-glass" data-dl="linux" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">
-        <span data-i18n="dl.linux-guide" data-dl-label="linux">Get it on Linux</span>
-      </a>
-      <a class="btn btn-glass" data-dl="macos" href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/MACOS.md">
-        <span data-i18n="dl.macos-guide" data-dl-label="macos">Get it on macOS</span>
-        <span class="exp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"/></svg><span data-i18n="dl.experimental">Experimental</span></span>
-      </a>
+      <a class="btn btn-primary btn-lg" href="/download/"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5l5 -5"/><path d="M5 21h14"/></svg><span data-i18n="final.dl">Download Aurora Viewer</span></a>
+      <a class="btn btn-line btn-lg" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="final.gh">View on GitHub</span></a>
     </div>
   </div>
 </section>
@@ -624,32 +596,34 @@
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a class="brand" href="#top"><img src="assets/img/logo.svg" width="30" height="30" alt=""><span>Aurora Viewer</span></a>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" width="26" height="26" alt=""><span>Aurora Viewer</span></a>
         <p class="about" data-i18n="foot.about">A modern Second Life viewer, written in Rust.</p>
       </div>
       <nav class="fcol" aria-labelledby="f-product">
         <h2 id="f-product" data-i18n="foot.product">Product</h2>
-        <a data-dl="windows" href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases/latest" data-i18n="foot.download">Download</a>
-        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/LINUX.md">Linux</a>
-        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/MACOS.md">macOS</a>
+        <a href="/download/" data-i18n="foot.download">Download</a>
+        <a href="/download/?os=windows">Windows</a>
+        <a href="/download/?os=linux">Linux</a>
+        <a href="/download/?os=macos">macOS</a>
         <a href="/uninstall/" data-i18n="foot.uninstall">Uninstall</a>
         <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/releases" data-i18n="foot.notes">Release notes</a>
-        <a href="#roadmap" data-i18n="foot.roadmap">Roadmap</a>
+        <a href="/#roadmap" data-i18n="foot.roadmap">Roadmap</a>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-support">
+        <h2 id="f-support" data-i18n="menu.label">Community and support</h2>
+        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose" data-i18n="foot.bug">Report a bug</a>
+        <a href="https://feedback.aurora-viewer.org" data-i18n="menu.feedback">Feedback board</a>
+        <a class="with-logo" href="https://discord.gg/TK4nbMGmKt"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
+        <a href="/support/" data-i18n="foot.faq">Help and FAQ</a>
       </nav>
       <nav class="fcol" aria-labelledby="f-project">
         <h2 id="f-project" data-i18n="foot.project">Project</h2>
-        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer" data-i18n="foot.source">Source code</a>
-        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose" data-i18n="foot.bug">Report a bug</a>
+        <a class="with-logo" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="foot.source">Source code</span></a>
         <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/blob/main/docs/TRANSLATING.md" data-i18n="foot.translate">Translate</a>
         <a href="https://github.com/Aurora-Viewer/Aurora-Viewer#contributing" data-i18n="foot.contribute">Contribute</a>
         <a href="/privacy/" data-i18n="foot.privacy">Privacy</a>
-        <a href="/code-signing/">Code signing policy</a>
+        <a href="/code-signing/" data-i18n="foot.signing">Code signing policy</a>
         <a href="/ai-policy/" data-i18n="foot.ai">AI use policy</a>
-      </nav>
-      <nav class="fcol" aria-labelledby="f-community">
-        <h2 id="f-community" data-i18n="foot.community">Community</h2>
-        <a href="https://discord.gg/TK4nbMGmKt">Discord</a>
-        <a href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues">Issues</a>
       </nav>
     </div>
     <div class="legal">
@@ -658,5 +632,17 @@
     </div>
   </div>
 </footer>
+<div class="fab pop">
+  <div class="pop-panel fab-panel" id="fab-panel" hidden>
+    <p class="pop-title" data-i18n="fab.title">How can we help?</p>
+    <a class="pop-item" href="https://github.com/Aurora-Viewer/Aurora-Viewer/issues/new/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M12 6V4M4 13h4M16 13h4M5 8l3 2M19 8l-3 2M5 19l3-2M19 19l-3-2"/></svg><span data-i18n="foot.bug">Report a bug</span></a>
+    <a class="pop-item" href="https://feedback.aurora-viewer.org"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg><span data-i18n="act.idea">Suggest a feature</span></a>
+    <a class="pop-item" href="https://discord.gg/TK4nbMGmKt"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.1.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg><span data-i18n="fab.discord">Ask on Discord</span></a>
+    <a class="pop-item" href="https://github.com/Aurora-Viewer/Aurora-Viewer"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="fab.gh">Source code on GitHub</span></a>
+    <a class="pop-foot" href="/support/" data-i18n="menu.faq">Help and FAQ →</a>
+  </div>
+  <button type="button" class="btn btn-primary fab-btn" aria-expanded="false" aria-controls="fab-panel" data-pop><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg><span class="fab-lbl" data-i18n="fab.label">Help and feedback</span></button>
+</div>
+<!-- /fab -->
 </body>
 </html>
