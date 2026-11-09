@@ -132,7 +132,7 @@
     'dl.more.all.text': 'Chaque version et ses notes, sur GitHub.',
     'dl.more.uninstall.text': 'Retirer le viewer et ses fichiers.',
     'dl.more.signing.text': 'Comment les versions sont construites et vérifiées.',
-    'alt.world': 'Aurora Viewer dans un jardin japonais, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire, Performances et Conversations ouvertes',
+    'alt.world': 'Aurora Viewer dans un jardin sous les cerisiers, entre les tours d’une ville, avec les fenêtres Personnes, Contrôles, Lieux, Inventaire et Conversations ouvertes',
     'float.load': 'Chargement en parallèle',
     'float.load-sub': 'Textures et meshes décodés en arrière-plan',
     'float.photo': 'Photos jusqu’en 8K',
