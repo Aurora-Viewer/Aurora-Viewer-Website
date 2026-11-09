@@ -110,7 +110,7 @@
       </div>
       <div class="float f1">
         <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg></span>
-        <div><b>193 fps</b><span data-i18n="float.fps">5.2 ms per frame, six windows open</span></div>
+        <div><b data-i18n="float.load">Parallel loading</b><span data-i18n="float.load-sub">Textures and meshes decoded in the background</span></div>
       </div>
       <div class="float f2">
         <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6"/></svg></span>
@@ -123,7 +123,7 @@
 
 <section class="wrap" aria-label="At a glance" data-i18n-aria="stats.label">
   <div class="stats">
-    <div class="stat"><div class="n">≈ 5×</div><p data-i18n="stats.fps">the frame rate of a classic viewer in a busy store</p></div>
+    <div class="stat"><div class="n" data-i18n="stats.cores">Multi-core</div><p data-i18n="stats.threads">the work shared across your processor while the graphics card draws</p></div>
     <div class="stat"><div class="n">≈ ½</div><p data-i18n="stats.vram">the video memory for the same textures</p></div>
     <div class="stat"><div class="n" data-i18n="stats.instant">Instant</div><p data-i18n="stats.tp">teleports within a region, with no loading screen</p></div>
     <div class="stat"><div class="n">Vulkan</div><p data-i18n="stats.vulkan">a renderer built for today's graphics cards</p></div>
@@ -148,19 +148,19 @@
     <div class="split">
       <div>
         <p class="eyebrow" data-i18n="perf.eyebrow">Performance</p>
-        <h2 class="display h2" data-i18n="perf.title">Hundreds of frames per second, right where it's crowded.</h2>
-        <p class="lead" style="margin-top: 22px" data-i18n="perf.lead">Your graphics card finally does the work. It decides what is visible and draws thousands of objects in a handful of calls, while a dedicated render thread keeps the frames coming.</p>
+        <h2 class="display h2" data-i18n="perf.title">Built for every core of your machine.</h2>
+        <p class="lead" style="margin-top: 22px" data-i18n="perf.lead">Aurora shares the work across your processor and hands the heavy lifting to your graphics card. While one frame is drawn, the next one is already being prepared.</p>
       </div>
-      <div class="card bars" data-observe>
-        <div class="bar-row">
-          <div class="bar-head"><span class="who">Aurora Viewer</span><span class="val">340 <small>fps</small></span></div>
-          <div class="bar"><div class="bar-fill bar-a"></div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-head"><span class="who muted" data-i18n="perf.classic">A classic viewer</span><span class="val muted">68 <small>fps</small></span></div>
-          <div class="bar"><div class="bar-fill bar-b"></div></div>
-        </div>
-        <p class="note" data-i18n="perf.note">Busy store · about 16,000 objects · same PC, same spot</p>
+      <div class="card lanes">
+        <p class="note" data-i18n="perf.lanes">Who does what, side by side</p>
+        <dl>
+          <div><dt>main</dt><dd><b data-i18n="perf.l1.title">The world and the interface</b><span data-i18n="perf.l1.text">Prepares the next frame</span></dd></div>
+          <div><dt>render</dt><dd><b data-i18n="perf.l2.title">Drawing</b><span data-i18n="perf.l2.text">Draws the current frame, with two helpers</span></dd></div>
+          <div><dt>workers</dt><dd><b data-i18n="perf.l3.title">Frame helpers</b><span data-i18n="perf.l3.text">Share the big loops: poses, draw lists</span></dd></div>
+          <div><dt>background</dt><dd><b data-i18n="perf.l4.title">Decoding</b><span data-i18n="perf.l4.text">Textures and meshes, at low priority</span></dd></div>
+          <div><dt>network</dt><dd><b data-i18n="perf.l5.title">Downloads</b><span data-i18n="perf.l5.text">Many at once, more as your connection keeps up</span></dd></div>
+          <div><dt>GPU</dt><dd><b data-i18n="perf.l6.title">Visibility and drawing</b><span data-i18n="perf.l6.text">Thousands of objects in a handful of calls</span></dd></div>
+        </dl>
       </div>
     </div>
 
@@ -179,6 +179,11 @@
         <span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg></span>
         <h3 data-i18n="perf.m3.title">It holds on</h3>
         <p data-i18n="perf.m3.text">A network blip no longer logs you out: Aurora reconnects you right where you were.</p>
+      </div>
+      <div class="card mini">
+        <span class="ic teal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12h-12z"/><path d="M9 9h6v6h-6z"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg></span>
+        <h3 data-i18n="perf.m4.title">Made for today's hardware</h3>
+        <p data-i18n="perf.m4.text">Vulkan, Metal on macOS, the dedicated graphics card on a laptop, and AMD FSR 3.1 upscaling on every brand of card.</p>
       </div>
     </div>
   </div>
