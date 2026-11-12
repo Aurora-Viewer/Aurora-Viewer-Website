@@ -318,7 +318,7 @@
     'new.title': 'Des correctifs pour la construction, le chat et les cartes AMD.',
     'new.badge': 'Nouveau',
     'new.building.title': 'La construction, comme dans le Legacy Viewer',
-    'new.building.text': 'Choisir une face sélectionne de nouveau les faces de ce que vous portez, et Faire disparaître avec Modifier les parties liées ne cache que la partie choisie, pratique pour les panneaux DEMO d’une démo portée.',
+    'new.building.text': 'Choisir une face sélectionne de nouveau les faces de ce que vous portez, et Faire disparaître avec Modifier les parties liées ne cache que la partie choisie.',
     'new.chat.title': 'Chat et voix',
     'new.chat.text': 'Le sélecteur de canal s’affiche près de chaque saisie du chat local et garde le canal choisi. La voix locale se connecte aussi sur les liaisons lentes.',
     'new.cards.title': 'Juste sur toutes les cartes graphiques',
