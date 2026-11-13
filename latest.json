@@ -1,0 +1,23 @@
+{
+  "version": "0.9.8",
+  "date": "2026-11-12T04:15:40Z",
+  "url": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/tag/v0.9.8",
+  "windows": {
+    "url": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-windows-x64.zip",
+    "size": 80559256,
+    "name": "Aurora-Viewer-v0.9.8-windows-x64.zip",
+    "sum": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-windows-x64.zip.sha256"
+  },
+  "linux": {
+    "url": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-linux-x64.tar.gz",
+    "size": 83759191,
+    "name": "Aurora-Viewer-v0.9.8-linux-x64.tar.gz",
+    "sum": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-linux-x64.tar.gz.sha256"
+  },
+  "macos": {
+    "url": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-macos-arm64.dmg",
+    "size": 80624118,
+    "name": "Aurora-Viewer-v0.9.8-macos-arm64.dmg",
+    "sum": "https://github.com/Aurora-Viewer/Aurora-Viewer/releases/download/v0.9.8/Aurora-Viewer-v0.9.8-macos-arm64.dmg.sha256"
+  }
+}

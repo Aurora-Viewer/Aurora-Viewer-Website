@@ -25,13 +25,23 @@ it in all of them.
 
 ## What updates by itself
 
-- **Version, date and downloads.** On load, each page asks the GitHub API for
-  the viewer's releases and takes the newest one whose tag starts with `v`
-  followed by a digit (so `media-plugins-*` releases are skipped). The version
-  and date, the release notes link and, on the download page, each system's
-  button, file name, size and SHA-256 link (the `.sha256` file next to it), and
-  the file name in the Linux commands follow that release. The answer is kept
-  one hour in the visitor's browser.
+- **Version, date and downloads.** On load, each page reads two sources and
+  keeps the newest answer: `latest.json` on this site, and the GitHub API for
+  the viewer's releases. Both take the newest stable release whose tag starts
+  with `v` followed by a digit (so betas and `media-plugins-*` releases are
+  skipped). The version and date, the release notes link and, on the download
+  page, each system's button, file name, size and SHA-256 link (the `.sha256`
+  file next to it), and the file name in the Linux commands follow that
+  release. The answer is kept one hour in the visitor's browser; a tab left
+  open asks again when it is shown after that hour. An answer older than the
+  version written in the page is ignored.
+- **`latest.json`.** The `Latest release` workflow
+  (`.github/workflows/latest-release.yml`) writes it every 15 minutes from the
+  GitHub API, once the release has its three downloads, and commits it when it
+  changed. Run it by hand from the Actions tab right after a release to skip the
+  wait. Being on this site, it still works for visitors whose GitHub API calls
+  are rate limited (shared addresses, VPNs, mobile networks) or blocked by a
+  privacy filter.
 - **The visitor's system.** The download page opens on the visitor's system
   (Windows when it cannot tell, for example on a phone) and marks it
   "Detected"; `?os=windows`, `?os=linux` or `?os=macos` picks one.

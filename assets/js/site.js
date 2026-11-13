@@ -9,6 +9,10 @@
   // Same feed as the viewer's login screen (crates/aurora-viewer/src/links.rs, NEWS_FEED).
   const NEWS_FEED = `https://raw.githubusercontent.com/${REPO}/main/news/`;
   const RELEASE_TTL = 60 * 60 * 1000;
+  const LATEST_FILE = '/latest.json';
+  // The version written in the page when it was published. A browser's cached answer or GitHub's
+  // edge can be older than it: those never take a page back to an older version.
+  const PAGE_VERSION = (document.querySelector('[data-version]') || {}).textContent || '0';
   // A new key drops the answers browsers kept before the files' names and checksums were kept too.
   const RELEASE_KEY = 'aurora-release-4';
   const NEWS_TTL = 30 * 60 * 1000;
@@ -456,6 +460,7 @@
 
   let lang = 'en';
   let release = null;
+  let releaseCheckedAt = 0;
 
   function pickLanguage() {
     const asked = new URLSearchParams(location.search).get('lang');
@@ -525,22 +530,64 @@
     return response.json();
   }
 
-  async function loadRelease() {
-    release = cached(RELEASE_KEY, RELEASE_TTL);
-    if (!release) {
-      try {
-        const list = await fetchJson(RELEASES_API);
-        release = summarise(Array.isArray(list) ? list : []);
-        // The list endpoint is cached at GitHub's edge and has been seen answering []:
-        // fall back to the release marked latest.
-        if (!release) release = summarise([await fetchJson(`https://api.github.com/repos/${REPO}/releases/latest`)]);
-        if (release) store.set(RELEASE_KEY, { at: Date.now(), value: release });
-      } catch (_) {
-        return; // Offline or rate limited: keep the values written in the page.
-      }
+  // "0.9.10" is newer than "0.9.9": compare each number, not the text.
+  function isNewer(a, b) {
+    const pa = String(a).split(/[.-]/).map((n) => parseInt(n, 10) || 0);
+    const pb = String(b).split(/[.-]/).map((n) => parseInt(n, 10) || 0);
+    for (let i = 0; i < Math.max(pa.length, pb.length); i += 1) {
+      if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) > (pb[i] || 0);
     }
+    return false;
+  }
+
+  const newest = (answers) => answers
+    .filter((r) => r && typeof r.version === 'string')
+    .reduce((best, r) => (!best || isNewer(r.version, best.version) ? r : best), null);
+
+  // latest.json is written next to the pages by the website's own workflow from the same API.
+  // Being on this site, it is not counted against the visitor's GitHub API limit and is
+  // not blocked by privacy filters; `no-cache` asks the server even when the browser has a copy.
+  async function fromSite() {
+    try {
+      const response = await fetch(LATEST_FILE, { cache: 'no-cache' });
+      return response.ok ? await response.json() : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  async function fromApi() {
+    try {
+      const list = await fetchJson(RELEASES_API);
+      // The list endpoint is cached at GitHub's edge and has been seen answering []:
+      // fall back to the release marked latest.
+      return summarise(Array.isArray(list) ? list : [])
+        || summarise([await fetchJson(`https://api.github.com/repos/${REPO}/releases/latest`)]);
+    } catch (_) {
+      return null; // Offline or rate limited.
+    }
+  }
+
+  async function loadRelease() {
+    releaseCheckedAt = Date.now();
+    let found = cached(RELEASE_KEY, RELEASE_TTL);
+    if (!found || isNewer(PAGE_VERSION, found.version)) {
+      // Both are asked: the newest answer wins, so a late latest.json or a stale API answer is outvoted.
+      found = newest(await Promise.all([fromSite(), fromApi()]));
+      if (found) store.set(RELEASE_KEY, { at: Date.now(), value: found });
+    }
+    // Never older than the version written in the page: keep the page's values then.
+    if (!found || isNewer(PAGE_VERSION, found.version)) return;
+    release = found;
     renderRelease();
   }
+
+  // A tab left open for days, or brought back from the browser's history, asks again once its answer is old.
+  function recheckRelease() {
+    if (document.visibilityState === 'visible' && Date.now() - releaseCheckedAt >= RELEASE_TTL) loadRelease();
+  }
+  document.addEventListener('visibilitychange', recheckRelease);
+  window.addEventListener('pageshow', (event) => { if (event.persisted) recheckRelease(); });
 
   const formatSize = (bytes) => `${new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(bytes / 1e6)} ${STR[lang].mb}`;
 
